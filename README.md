@@ -34,3 +34,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# ARCHAIVE_LP
+
+## ディレクトリ構成と役割
+
+- `src/` : アプリケーション本体のソースコードを格納します。
+  - `src/components/` : 複数のページや機能で再利用するUIコンポーネント（例：ボタン、ヘッダー、フッターなど）を配置します。
+  - `src/features/` : 特定の機能やドメインごとにまとめたロジックやコンポーネントを配置します（例：ユーザー管理、LP生成機能など）。
+- `docs/` : 仕様や設計、提案内容などのドキュメントを格納します。
+- `public/` : 画像やフォントなどの静的ファイルを格納します。
+- `pages/` または `src/pages/` : Next.jsのルーティングに使われるページコンポーネントを配置します。
+
+---
+
+### ディレクトリの使い方例
+
+- `src/components/` : Button.tsx, Header.tsx, Footer.tsx など汎用UI
+- `src/features/` : lp/（LP生成機能）、auth/（認証機能）など機能単位でディレクトリを分ける
