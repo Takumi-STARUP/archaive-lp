@@ -1,6 +1,6 @@
 import React from 'react';
 
-type IconType = 'ai' | 'speed' | 'chat' | 'doc' | 'diff' | 'user' | 'company' | 'arrow' | 'check';
+export type IconType = 'ai' | 'speed' | 'chat' | 'doc' | 'diff' | 'user' | 'company' | 'arrow' | 'check';
 
 export default function Icon({ type, className = '', size = 32 }: { type: IconType; className?: string; size?: number }) {
   switch (type) {

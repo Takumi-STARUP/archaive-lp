@@ -34,7 +34,7 @@ export default function ProductSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           {features.map((f, idx) => (
             <div key={idx} className="flex items-start gap-4 bg-blue-50 rounded-xl shadow p-6 border border-blue-100">
-              <Icon type={f.icon as any} size={40} className="shrink-0" />
+              <Icon type={f.icon as IconType} size={40} className="shrink-0" />
               <div>
                 <div className="font-bold text-[#37B7C4] text-lg mb-1">{f.title}</div>
                 <div className="text-gray-700">{f.description}</div>

@@ -1,4 +1,5 @@
 import Icon from '@/components/ui/Icon';
+import { IconType } from '@/components/ui/Icon';
 
 const steps = [
   {
@@ -26,7 +27,7 @@ export default function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {steps.map((step, idx) => (
             <div key={idx} className="flex flex-col items-center bg-white rounded-xl shadow-lg p-8 border border-blue-100">
-              <Icon type={step.icon as any} size={48} className="mb-4" />
+              <Icon type={step.icon as IconType} size={48} className="mb-4" />
               <h3 className="text-xl font-bold text-[#37B7C4] mb-2">{step.title}</h3>
               <p className="text-gray-700 text-center">{step.description}</p>
             </div>
