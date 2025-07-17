@@ -4,18 +4,12 @@ import Button from '@/components/ui/Button';
 
 export default function CTASection2() {
   return (
-    <section id="cta2" className="py-24 bg-gradient-to-br from-purple-200 via-blue-100 to-pink-100 text-center relative overflow-hidden">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="text-4xl font-extrabold mb-6 text-blue-700 drop-shadow">
-          競合が見積もりを作っている間に、あなたの会社は次の受注を決めている。
-        </h2>
-        <p className="text-xl mb-8 text-gray-800 font-semibold">
-          まずは30分のオンラインデモで、その実力と未来の働き方を体験してください。
-        </p>
-        <Button as="a" href="/lp2/apply" size="lg" className="bg-gradient-to-r from-blue-700 via-purple-600 to-pink-500 text-white shadow-xl text-2xl px-12 py-5 rounded-full font-bold hover:scale-105 transition mb-4">
-          無料でその実力をデモ体験
-        </Button>
-        <div className="text-base text-gray-500 mt-4">かんたん入力30秒 / 無理な勧誘は一切ありません</div>
+    <section className="py-20 bg-gradient-to-br from-black via-[#181A1B] to-[#37B7C4]/40 text-white text-center relative">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-extrabold mb-4 text-[#37B7C4] drop-shadow">今すぐ未来の業務体験を</h2>
+        <div className="mx-auto w-24 h-1 bg-gradient-to-r from-[#37B7C4] via-blue-400 to-purple-400 rounded-full mb-8"></div>
+        <p className="text-xl mb-10 text-white/90">AI×3Dで、あなたのビジネスに新しい価値を。</p>
+        <a href="/lp2/apply" className="inline-block px-12 py-5 bg-[#37B7C4] text-white rounded-2xl font-bold text-2xl shadow-2xl hover:scale-105 hover:shadow-cyan-400/70 transition-all duration-200 ring-2 ring-[#37B7C4]/40">無料デモ体験</a>
       </div>
       {/* Decorative BG */}
       <div className="absolute inset-0 pointer-events-none">

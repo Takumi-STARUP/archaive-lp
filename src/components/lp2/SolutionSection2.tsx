@@ -2,12 +2,13 @@
 
 export default function SolutionSection2() {
   return (
-    <section id="solution2" className="py-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 relative overflow-hidden">
+    <section id="solution2" className="py-20 bg-black text-white">
       <div className="container mx-auto px-4 flex flex-col items-center">
-        <h2 className="text-4xl font-extrabold mb-6 text-purple-700 text-center drop-shadow">その課題、業界初の「チャット式見積AI」が解決します。</h2>
-        <div className="w-full max-w-2xl bg-white/80 rounded-2xl shadow-xl p-10 flex flex-col items-center border-4 border-purple-200">
+        <h2 className="text-4xl font-extrabold mb-6 text-[#37B7C4] text-center drop-shadow">その課題、業界初の「チャット式見積AI」が解決します。</h2>
+        <div className="mx-auto w-24 h-1 bg-gradient-to-r from-[#37B7C4] via-blue-400 to-purple-400 rounded-full mb-8"></div>
+        <div className="w-full max-w-2xl bg-black rounded-2xl shadow-xl p-10 flex flex-col items-center border-4 border-[#37B7C4]/20">
           <img src="/images/archaive-logo.png" alt="ARCHAIVEロゴ" className="h-14 mb-4" />
-          <p className="text-xl text-gray-700 text-center font-semibold">
+          <p className="text-xl text-white text-center font-semibold">
             ARCHAIVEのAIエージェントが、<br />見積もり業務の属人化・非効率・ミスを根本から解決。
           </p>
         </div>

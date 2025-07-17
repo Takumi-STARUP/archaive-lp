@@ -27,9 +27,10 @@ const cases = [
 
 export default function CaseSection2() {
   return (
-    <section id="cases2" className="py-20 bg-black text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-extrabold mb-10 text-[#37B7C4] text-center drop-shadow">すでに、競争力を手に入れた企業様の声</h2>
+    <section id="cases2" className="py-20 bg-white text-[#181A1B]">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <h2 className="text-4xl font-extrabold mb-4 text-[#37B7C4] text-center drop-shadow">導入事例</h2>
+        <div className="mx-auto w-24 h-1 bg-gradient-to-r from-[#37B7C4] via-blue-400 to-purple-400 rounded-full mb-8"></div>
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           {cases.map((c, idx) => (
             <div key={idx} className="w-full md:w-[340px] bg-white/20 rounded-2xl shadow-lg p-8 border border-white/30 flex flex-col items-center backdrop-blur-md">
