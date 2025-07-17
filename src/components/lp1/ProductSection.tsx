@@ -1,4 +1,5 @@
 import Icon from '@/components/ui/Icon';
+import { IconType } from '@/components/ui/Icon';
 
 const features = [
   {
