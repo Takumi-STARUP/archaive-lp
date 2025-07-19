@@ -21,14 +21,14 @@ const faqs = [
 
 export default function FAQSection2() {
   return (
-    <section id="faq2" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-extrabold mb-10 text-purple-700 text-center drop-shadow">よくあるご質問</h2>
+    <section className="py-20 bg-white text-[#37B7C4] shadow-2xl rounded-3xl">
+      <div className="container mx-auto px-4 max-w-5xl text-center">
+        <h2 className="text-4xl font-extrabold mb-10 text-[#37B7C4] text-center drop-shadow">よくあるご質問</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50 rounded-2xl shadow p-8 border-2 border-purple-100">
-              <div className="font-bold text-blue-700 mb-2 text-lg">Q. {faq.question}</div>
-              <div className="text-gray-800 text-base">A. {faq.answer}</div>
+            <div key={idx} className="bg-[#37B7C4]/10 rounded-2xl shadow p-8 border-2 border-[#37B7C4]/20">
+              <div className="font-bold text-[#37B7C4] mb-2 text-lg">Q. {faq.question}</div>
+              <div className="text-[#37B7C4] text-base">A. {faq.answer}</div>
             </div>
           ))}
         </div>

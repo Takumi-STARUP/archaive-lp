@@ -27,19 +27,19 @@ const cases = [
 
 export default function CaseSection2() {
   return (
-    <section id="cases2" className="py-20 bg-black text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-white text-[#37B7C4] shadow-2xl rounded-3xl">
+      <div className="container mx-auto px-4 max-w-5xl text-center">
         <h2 className="text-4xl font-extrabold mb-10 text-[#37B7C4] text-center drop-shadow">すでに、競争力を手に入れた企業様の声</h2>
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           {cases.map((c, idx) => (
-            <div key={idx} className="w-full md:w-[340px] bg-white/20 rounded-2xl shadow-lg p-8 border border-white/30 flex flex-col items-center backdrop-blur-md">
+            <div key={idx} className="w-full md:w-[340px] bg-[#37B7C4]/10 rounded-2xl shadow-lg p-8 border border-[#37B7C4]/20 flex flex-col items-center">
               <img src={c.logoUrl} alt={c.company + 'ロゴ'} className="h-10 mb-2" />
-              <img src={c.photoUrl} alt={c.person + '写真'} className="w-16 h-16 rounded-full border-2 border-blue-400 mb-2 object-cover" />
+              <img src={c.photoUrl} alt={c.person + '写真'} className="w-16 h-16 rounded-full border-2 border-[#37B7C4] mb-2 object-cover" />
               <div className="font-bold text-[#37B7C4] mb-1">{c.company}</div>
-              <div className="text-sm text-white/80 mb-2">{c.person}（{c.position}）</div>
-              <div className="text-xs text-white/70 mb-1">導入前: {c.before}</div>
+              <div className="text-sm text-[#37B7C4]/80 mb-2">{c.person}（{c.position}）</div>
+              <div className="text-xs text-[#37B7C4]/70 mb-1">導入前: {c.before}</div>
               <div className="text-xs text-[#37B7C4] mb-2">導入後: {c.after}</div>
-              <div className="italic text-white text-center">“{c.comment}”</div>
+              <div className="italic text-[#37B7C4] text-center">“{c.comment}”</div>
             </div>
           ))}
         </div>

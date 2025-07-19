@@ -28,7 +28,6 @@ export default function Footer2() {
           <div className="text-sm text-white/70">東京都千代田区1-2-3</div>
           <div className="text-sm text-white/70">info@archaive.co.jp</div>
         </div>
-        
         {/* 中央：ナビゲーション */}
         <div className="flex flex-col items-center gap-3">
           <span className="font-bold text-[#37B7C4] mb-2">メニュー</span>
@@ -37,14 +36,13 @@ export default function Footer2() {
               <a 
                 key={item.href} 
                 href={item.href} 
-                className="px-4 py-2 rounded-lg hover:bg-white/10 transition text-white/80 text-sm font-semibold"
+                className="px-4 py-2 rounded-lg hover:text-[#37B7C4] hover:bg-white/10 transition text-white text-sm font-semibold"
               >
                 {item.label}
               </a>
             ))}
           </div>
         </div>
-        
         {/* 右：SNS */}
         <div className="flex gap-4">
           <a 
