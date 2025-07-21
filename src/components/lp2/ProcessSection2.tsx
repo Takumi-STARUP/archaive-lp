@@ -1,25 +1,5 @@
 'use client';
 
-import Icon from '@/components/ui/Icon';
-import { IconType } from '@/components/ui/Icon';
-
-const steps = [
-  {
-    icon: 'arrow',
-    title: 'お問い合わせ・デモ予約',
-    description: 'フォームから30秒で簡単予約。',
-  },
-  {
-    icon: 'chat',
-    title: 'オンラインデモ・ヒアリング',
-    description: '貴社の課題を伺いながら、実際の画面で機能や効果をご説明します（30分）。',
-  },
-  {
-    icon: 'check',
-    title: 'ご契約・導入サポート',
-    description: '専任スタッフがデータ移行から初期設定まで丁寧にサポートします。',
-  },
-];
 
 export default function ProcessSection2() {
   return (

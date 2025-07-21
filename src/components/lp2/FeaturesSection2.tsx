@@ -1,32 +1,12 @@
 'use client';
 
-import Icon from '@/components/ui/Icon';
-import { IconType } from '@/components/ui/Icon';
-
-const features = [
-  {
-    icon: 'ai',
-    title: '超高精度な図面読解力',
-    description: 'AIが人間を超える精度で図面情報を読み取り、解釈します。',
-  },
-  {
-    icon: 'speed',
-    title: '圧倒的な処理スピード',
-    description: '人間が数時間かける作業を、AIがわずか数分で完了させます。',
-  },
-  {
-    icon: 'chat',
-    title: '誰でも使える対話形式UI',
-    description: '専門知識不要。チャットで対話するだけの直感的な操作性。',
-  },
-];
 
 export default function FeaturesSection2() {
   return (
     <section id="features2" className="py-20 bg-white text-[#181A1B] scroll-mt-20">
       <div className="container mx-auto px-4 max-w-5xl">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-16 text-black drop-shadow">
-          なぜARCHAIVEなら、"見積もり3分"が可能なのか？
+          なぜARCHAIVEなら、&quot;見積もり3分&quot;が可能なのか？
         </h2>
         <div className="flex flex-col gap-32">
           {/* 1つ目 */}
