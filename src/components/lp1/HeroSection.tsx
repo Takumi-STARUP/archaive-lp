@@ -24,8 +24,8 @@ export default function HeroSection() {
         </div>
         {/* Right: UIデモアニメーション風ビジュアル + ダミー画像 */}
         <div className="md:w-1/2 w-full flex justify-center mt-8 md:mt-0">
-          <div className="relative w-[320px] h-[240px] bg-white rounded-xl shadow-lg border border-blue-100 flex items-center justify-center overflow-hidden animate-fade-in">
-            <img src="/images/lp1-hero-demo.png" alt="LP1 UIデモダミー画像" className="w-full h-full object-cover" />
+          <div className="relative w-full max-w-md h-[180px] md:h-[260px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl border border-gray-200">
+            <img src="/images/Group 18.png" alt="LP1 UIデモダミー画像" className="w-full h-full object-cover" />
             {/* アニメーション例: チャットバブル */}
             <div className="absolute bottom-4 left-4 animate-fade-in-up bg-white rounded-lg shadow px-4 py-2 text-sm text-gray-700 border border-blue-100">
               AI: 「図面をアップロードしてください」

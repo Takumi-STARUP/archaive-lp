@@ -8,6 +8,6 @@ export default function Home() {
         <Link href="/lp1" className="px-8 py-4 bg-[#37B7C4] text-white rounded-xl font-bold text-2xl shadow-lg hover:scale-105 transition">LP1を見る</Link>
         <Link href="/lp2" className="px-8 py-4 bg-black text-white rounded-xl font-bold text-2xl shadow-lg hover:scale-105 transition">LP2を見る</Link>
       </div>
-    </main>
+      </main>
   );
-} 
+}

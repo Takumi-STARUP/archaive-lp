@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button';
 
 export default function CTASection2() {
   return (
-    <section className="py-20 bg-black text-white shadow-2xl rounded-3xl">
+    <section className="py-20 bg-black text-white shadow-2xl">
       <div className="container mx-auto px-4 max-w-2xl text-center">
         <h2 className="text-4xl font-extrabold mb-6 text-white drop-shadow">
           競合が見積もりを作っている間に、あなたの会社は次の受注を決めている。
