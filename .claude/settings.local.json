@@ -22,7 +22,12 @@
       "Bash(npm start)",
       "Bash(npx serve:*)",
       "Bash(sed:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(vercel:*)",
+      "Bash(npx vercel:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   }

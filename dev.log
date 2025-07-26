@@ -1,0 +1,17 @@
+
+> lp-1@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.3.4
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.11.7:3000
+
+ ✓ Starting...
+ ✓ Ready in 1443ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1893ms (751 modules)
+ GET / 200 in 2304ms
+ ✓ Compiled in 222ms (323 modules)
+ ○ Compiling /lp3 ...
+ ✓ Compiled /lp3 in 674ms (826 modules)
+ GET /lp3 200 in 784ms
