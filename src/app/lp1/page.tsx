@@ -7,8 +7,8 @@ import CaseSection from '@/components/lp1/CaseSection';
 import ProcessSection from '@/components/lp1/ProcessSection';
 import FAQSection from '@/components/lp1/FAQSection';
 import ContactSection from '@/components/lp1/ContactSection';
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
+import Header from '@/components/lp1/Header';
+import Footer from '@/components/lp1/Footer';
 
 export default function Home() {
   return (

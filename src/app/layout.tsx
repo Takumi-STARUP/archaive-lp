@@ -1,4 +1,5 @@
 import './globals.css';
+import '@/styles/lp1-animations.css';
 
 export const metadata = {
   title: 'ARCHAIVE LP Root',

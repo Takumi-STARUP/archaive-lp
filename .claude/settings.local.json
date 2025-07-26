@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx next dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "Bash(grep:*)",
+      "Bash(pkill:*)",
+      "Bash(node:*)",
+      "Bash(PORT=3001 npm run dev)",
+      "Bash(mkdir:*)",
+      "Bash(killall:*)",
+      "Bash(true)",
+      "Bash(rm:*)",
+      "Bash(npm install:*)",
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(./copy_lp3_structure.sh:*)",
+      "Bash(# Create apply directories and pages for LP6-10\nfor i in 6 7 8 9 10; do\n  mkdir -p \"\"src/app/lp${i}/apply\"\"\n  \n  # Create apply page\n  cat > \"\"src/app/lp${i}/apply/page.tsx\"\" << EOF\nexport default function LP${i}Apply() {\n  return (\n    <div className=\"\"min-h-screen bg-white py-16\"\">\n      <div className=\"\"container mx-auto px-4 max-w-2xl\"\">\n        <h1 className=\"\"text-3xl font-bold text-center mb-8\"\">LP${i} 無料デモ申し込み</h1>\n        <p className=\"\"text-center text-gray-600\"\">申し込みフォームをここに実装</p>\n      </div>\n    </div>\n  );\n}\nEOF\ndone)",
+      "Bash(npm start)",
+      "Bash(npx serve:*)",
+      "Bash(sed:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}
