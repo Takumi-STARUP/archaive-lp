@@ -54,7 +54,7 @@ export default function SolutionSection() {
         </div>
 
         {/* ソリューション一覧 */}
-        <div className="space-y-16">
+        <div className="space-y-24">
           {solutions.map((solution, index) => (
             <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
               {/* アイコンと改善指標 */}
@@ -70,31 +70,38 @@ export default function SolutionSection() {
               {/* Before → After */}
               <div className="lg:w-2/3">
                 <div className="relative">
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid md:grid-cols-2 gap-12">
                     {/* Before */}
-                    <div className="bg-gray-50 rounded-2xl p-6 relative">
-                      <div className="absolute -top-3 left-6 bg-gray-400 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <div className="bg-gray-100 rounded-2xl p-6 relative border border-gray-200">
+                      <div className="absolute -top-3 left-6 bg-gray-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
                         Before
                       </div>
-                      <h4 className="text-lg font-semibold text-gray-700 mb-4 mt-4 min-h-[60px]">
+                      <h4 className="text-lg font-medium text-gray-600 mb-4 mt-4 min-h-[60px]">
                         {solution.before}
                       </h4>
                     </div>
 
                     {/* After */}
-                    <div className="bg-[#37B7C4]/10 border-2 border-[#37B7C4]/20 rounded-2xl p-6 relative">
-                      <div className="absolute -top-3 left-6 bg-[#37B7C4] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <div className="bg-gradient-to-br from-[#37B7C4]/15 to-[#37B7C4]/10 border-2 border-[#37B7C4]/30 rounded-2xl p-8 relative shadow-lg transform hover:scale-105 transition-all duration-300">
+                      <div className="absolute -top-3 left-6 bg-[#37B7C4] text-white px-6 py-2 rounded-full text-sm font-bold shadow-md">
                         After
                       </div>
-                      <h4 className="text-lg font-semibold text-[#37B7C4] mb-4 mt-4 min-h-[60px]">
+                      <h4 className="text-xl font-bold text-[#37B7C4] mb-4 mt-4 min-h-[60px] leading-tight">
                         {solution.after}
                       </h4>
+                      {/* キラキラ効果を追加 */}
+                      <div className="absolute top-2 right-2 w-3 h-3 bg-[#37B7C4] rounded-full animate-pulse"></div>
+                      <div className="absolute top-4 right-6 w-2 h-2 bg-[#37B7C4]/50 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                     </div>
                   </div>
                   
                   {/* Arrow positioned between Before and After */}
-                  <div className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#37B7C4] text-4xl font-bold z-10">
-                    →
+                  <div className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="bg-white rounded-full p-3 shadow-lg border border-[#37B7C4]/20">
+                      <div className="text-[#37B7C4] text-3xl font-bold animate-pulse">
+                        →
+                      </div>
+                    </div>
                   </div>
                 </div>
 

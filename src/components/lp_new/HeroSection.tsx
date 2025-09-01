@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import InteractiveDemo from './InteractiveDemo';
+import HeroQuickNav from './HeroQuickNav';
 
 export default function HeroSection() {
   return (
@@ -120,6 +121,8 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
+
+      <HeroQuickNav />
 
       {/* インタラクティブデモセクション */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
