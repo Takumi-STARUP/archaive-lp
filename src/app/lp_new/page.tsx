@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 import HeroSectionSplit from '@/components/lp_new/HeroSectionSplit';
+import HeroQuickNav from '@/components/lp_new/HeroQuickNav';
 import InteractiveDemo from '@/components/lp_new/InteractiveDemo';
-import ProblemSection from '@/components/lp_new/ProblemSection';
-import SolutionSection from '@/components/lp_new/SolutionSection';
+import ProblemSolutionSection from '@/components/lp_new/ProblemSolutionSection';
 import FeaturesSection from '@/components/lp_new/FeaturesSection';
-import AboutSection from '@/components/lp_new/AboutSection';
 import ProcessSection from '@/components/lp_new/ProcessSection';
 import CaseSection from '@/components/lp_new/CaseSection';
 import CTASection from '@/components/lp_new/CTASection';
@@ -25,17 +24,17 @@ export default function LPNew() {
       <Header />
       <main className="pt-20">
         <div id="hero">
-          <HeroSectionSplit onFloatingNavChange={handleFloatingNavChange} />
-          {/* インタラクティブデモセクション */}
-          <section className={`py-20 bg-gradient-to-b from-white to-gray-50 transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+          <HeroSectionSplit />
+        </div>
+        <HeroQuickNav onFloatingNavChange={handleFloatingNavChange} />
+        {/* インタラクティブデモセクション */}
+        <div id="demo" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+          <section className="py-20 bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#333333] mb-4">
                   実際の操作画面で体験してみましょう
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 mb-2">
-                  本番環境と同じインターフェースで、ARCHAIVEの検索力を体感できます
-                </p>
                 <p className="text-sm text-[#37B7C4] font-medium">
                   ※ デモ環境のため、実際のデータは表示されません
                 </p>
@@ -57,25 +56,19 @@ export default function LPNew() {
             </div>
           </section>
         </div>
-        <div id="problem" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
-          <ProblemSection />
+        <div id="problem-solution" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+          <ProblemSolutionSection />
         </div>
-        <div id="solution" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
-          <SolutionSection />
-        </div>
-        <div id="features" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="features" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
           <FeaturesSection />
         </div>
-        <div id="about" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
-          <AboutSection />
-        </div>
-        <div id="process" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="process" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
           <ProcessSection />
         </div>
-        <div id="case" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="case" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
           <CaseSection />
         </div>
-        <div id="cta" className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="cta" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
           <CTASection />
         </div>
       </main>

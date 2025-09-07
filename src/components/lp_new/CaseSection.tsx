@@ -1,216 +1,291 @@
 'use client';
+import { useState } from 'react';
 
 export default function CaseSection() {
-  const highlightCase = {
-    companyName: "金属加工・試作メーカー様",
-    personName: "田中 様",
-    personTitle: "代表取締役",
-    quote: "経営判断のスピードが、データを探す時間で決まらなくなった。",
-    challenge: "過去20年分の図面データが散在し、類似案件の検索に半日近くかかることも。ベテラン技舠者の知見が属人化し、技術継承が業務上の大きな課題となっていました。",
-    solution: "ARCHAIVEのAIチャット型検索により、過去の類似案件を瞬時に発見。ベテランの知見をデータ化し、若手でも同等の判断が可能に。",
-    results: [
-      { 
-        before: "数時間",
-        after: "数分",
-        description: "情報検索時間" 
-      },
-      { 
-        before: "属人化",
-        after: "標準化",
-        description: "見積もりプロセス" 
-      },
-      { 
-        before: "不安定",
-        after: "安定的",
-        description: "品質管理" 
-      },
-      { 
-        before: "数ヶ月",
-        after: "数週間",
-        description: "新人教育期間" 
-      }
-    ],
-    testimonial: "ARCHAIVEを導入してから、会社の知識が『見える化』されました。これまでベテランの頭の中にしかなかった判断基準が、誰でもアクセスできる形になり、組織全体のレベルが底上げされています。何より、経営判断に必要な過去データを探すのに時間を取られることがなくなり、本当に大切な戦略的思考に集中できるようになりました。"
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const otherCompanies = [
-    { 
-      name: "精密機械製造",
-      icon: (
-        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 15.5A3.5 3.5 0 018.5 12 3.5 3.5 0 0112 8.5a3.5 3.5 0 013.5 3.5 3.5 3.5 0 01-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.65-.07-.97l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0014 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.08-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.32-.07.64-.07.97 0 .33.03.65.07.97l-2.11 1.63c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.39 1.06.73 1.69.98l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.25 1.17-.59 1.69-.98l2.49 1c.22.08.49 0 .61-.22l2-3.46c.13-.22.07-.49-.12-.64l-2.11-1.63z"/>
-        </svg>
-      )
+  const caseStudies = [
+    {
+      id: 1,
+      image: "/images/松田さん.png",
+      title: "見積・納品書作成・請求業務が図面起点の案件管理により大幅に削減しました。",
+      subtitle: "株式会社クロステック",
+      author: "松田 忠明 様",
+      hasInterview: true
     },
-    { 
-      name: "自動車部品",
-      icon: (
-        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
-        </svg>
-      )
+    {
+      id: 2,
+      image: "/images/中西さん.jpg", 
+      title: "図面を探す時間が大幅に削減され、類似案件の検索も容易になりました。",
+      subtitle: "株式会社エイ・エム・シィ",
+      author: "中西 弘栄 様",
+      hasInterview: true
     },
-    { 
-      name: "産業機械",
-      icon: (
-        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-        </svg>
-      )
-    },
-    { 
-      name: "電子部品",
-      icon: (
-        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
-        </svg>
-      )
-    },
-    { 
-      name: "航空宇宙",
-      icon: (
-        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-        </svg>
-      )
-    },
-    { 
-      name: "医療機器",
-      icon: (
-        <svg className="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM2 12v2h11v-2zm0-4v2h11V8zm0 8v2h7v-2z"/>
-        </svg>
-      )
+    {
+      id: 3,
+      image: "/api/placeholder/300/180",
+      title: "多数の図面を一括で処理し、概算見積もりをCSVで出力できる機能は、私たちの業務を効率化してくれています。",
+      subtitle: "スエナミ工業株式会社",
+      author: "横山 智一 様",
+      hasInterview: true
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % caseStudies.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + caseStudies.length) % caseStudies.length);
+  };
+
   return (
-    <section className="py-20 px-4 bg-white relative overflow-hidden">
-      {/* 装飾的な背景要素 */}
-      <div className="absolute top-40 right-0 w-96 h-96 bg-[#37B7C4]/3 rounded-full blur-3xl"></div>
+    <section className="py-12 sm:py-16 md:py-20 px-4 bg-gray-50">
       <div className="container mx-auto max-w-6xl">
         {/* セクションタイトル */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#333333] mb-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4 sm:mb-6">
             導入企業の実績
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            実際にARCHAIVEを導入いただいた企業様の声と成果
-          </p>
         </div>
 
-        {/* ハイライト事例 */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 mb-16">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* 左側：企業情報と担当者 */}
-            <div className="text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="mr-4">
-                  <svg className="w-12 h-12 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                  </svg>
+        {/* カルーセル */}
+        <div className="relative w-full max-w-7xl mx-auto mb-8 sm:mb-12 md:mb-16 overflow-hidden">
+          {/* モバイル表示 (sm未満) */}
+          <div className="block sm:hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out gap-4"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {caseStudies.map((caseItem, index) => (
+                <div key={caseItem.id} className="min-w-full flex-shrink-0 flex flex-col items-center text-center">
+                  {/* 画像と会社名・名前 */}
+                  <div className="relative w-full h-64 mb-4 overflow-hidden rounded-lg">
+                    {caseItem.image === "/api/placeholder/300/180" ? (
+                      <div className="w-full h-full bg-gradient-to-br from-[#37B7C4]/20 to-[#37B7C4]/10 flex items-center justify-center">
+                        <svg className="w-16 h-16 text-[#37B7C4]/50" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                      </div>
+                    ) : (
+                      <img 
+                        src={caseItem.image} 
+                        alt={caseItem.author} 
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                    
+                    {/* 黒グラデーションと会社名・名前オーバーレイ */}
+                    <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                      <div className="p-3 text-white text-left">
+                        <div className="text-sm font-bold">{caseItem.subtitle}</div>
+                        <div className="text-xs">{caseItem.author}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* コンテンツ */}
+                  <div className="px-2">
+                    <p className="text-base font-bold text-[#333333] leading-relaxed">
+                      {caseItem.title}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[#333333]">{highlightCase.companyName}</h3>
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="mr-4">
-                  <svg className="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-lg font-semibold text-[#333333]">{highlightCase.personName}</div>
-                  <div className="text-gray-600">{highlightCase.personTitle}</div>
-                </div>
-              </div>
-
-              <blockquote className="text-xl font-bold text-[#37B7C4] mb-6 italic">
-                「{highlightCase.quote}」
-              </blockquote>
-            </div>
-
-            {/* 右側：課題と解決策 */}
-            <div>
-              <div className="mb-6">
-                <h4 className="text-lg font-bold text-[#333333] mb-3 flex items-center">
-                  <span className="w-3 h-3 bg-[#f54848] rounded-full mr-3"></span>
-                  導入前の課題
-                </h4>
-                <p className="text-gray-600 leading-relaxed pl-6">
-                  {highlightCase.challenge}
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-bold text-[#333333] mb-3 flex items-center">
-                  <span className="w-3 h-3 bg-[#37B7C4] rounded-full mr-3"></span>
-                  ARCHAIVEによる解決
-                </h4>
-                <p className="text-gray-600 leading-relaxed pl-6">
-                  {highlightCase.solution}
-                </p>
-              </div>
+              ))}
             </div>
           </div>
-
-          {/* 詳細コメント */}
-          <div className="bg-[#37B7C4]/10 rounded-xl p-6 mt-8">
-            <p className="text-gray-700 leading-relaxed italic">
-              {highlightCase.testimonial}
-            </p>
+          
+          {/* デスクトップ表示 (sm以上) */}
+          <div className="hidden sm:block">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out gap-6 md:gap-8"
+              style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+            >
+              {caseStudies.map((caseItem, index) => (
+                <div key={caseItem.id} className="min-w-[calc(50%-0.75rem)] md:min-w-[calc(33.333%-1.5rem)] flex-shrink-0 flex flex-col items-center text-center">
+                  {/* 画像と会社名・名前 */}
+                  <div className="relative w-full h-72 md:h-80 mb-6 overflow-hidden rounded-lg">
+                  {caseItem.image === "/api/placeholder/300/180" ? (
+                    <div className="w-full h-full bg-gradient-to-br from-[#37B7C4]/20 to-[#37B7C4]/10 flex items-center justify-center">
+                      <svg className="w-20 h-20 text-[#37B7C4]/50" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                  ) : (
+                    <img 
+                      src={caseItem.image} 
+                      alt={caseItem.author} 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  
+                  {/* 黒グラデーションと会社名・名前オーバーレイ */}
+                  <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                    <div className="p-4 text-white text-left">
+                      <div className="text-sm font-bold">{caseItem.subtitle}</div>
+                      <div className="text-xs">{caseItem.author}</div>
+                    </div>
+                  </div>
+                </div>
+                
+                  {/* コンテンツ */}
+                  <div className="px-4">
+                    <p className="text-lg font-bold text-[#333333] leading-relaxed">
+                      {caseItem.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* カルーセルコントロール */}
+        <div className="flex justify-center items-center gap-3 sm:gap-5 mt-6 sm:mt-8">
+          <button 
+            onClick={prevSlide}
+            aria-label="Previous slide"
+            className="bg-transparent border-2 border-[#37B7C4] rounded-full w-8 h-8 sm:w-10 sm:h-10 text-[#37B7C4] text-sm sm:text-lg cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-[#37B7C4] hover:text-white disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed"
+          >
+            ←
+          </button>
+          
+          {/* インジケーター */}
+          <div className="flex gap-1.5 sm:gap-2.5">
+            {caseStudies.map((_, index) => (
+              <span
+                key={index}
+                className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors duration-300 cursor-pointer ${
+                  index === currentIndex ? 'bg-[#37B7C4]' : 'bg-gray-300'
+                }`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
+          
+          <button 
+            onClick={nextSlide}
+            aria-label="Next slide"
+            className="bg-transparent border-2 border-[#37B7C4] rounded-full w-8 h-8 sm:w-10 sm:h-10 text-[#37B7C4] text-sm sm:text-lg cursor-pointer flex items-center justify-center transition-all duration-300 hover:bg-[#37B7C4] hover:text-white disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed"
+          >
+            →
+          </button>
         </div>
 
         {/* その他の導入企業 */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-[#333333] mb-6">他の導入企業様</h3>
-          <div className="grid md:grid-cols-6 gap-6">
-            {otherCompanies.map((company, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <div className="flex justify-center mb-2">{company.icon}</div>
-                <div className="text-sm text-gray-600">{company.name}</div>
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 md:mb-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-6 text-center">他の導入企業様</h3>
+          <div className="overflow-hidden">
+            <div className="flex animate-scroll">
+              {/* 最初のロゴセット */}
+              <div className="flex flex-shrink-0">
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">産業機械A社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">電子部品B社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">航空宇宙C社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">医療機器D社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">建設機械E社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">食品機械F社</span>
+                  </div>
+                </div>
               </div>
-            ))}
+              {/* 重複するロゴセット（シームレスなループのため） */}
+              <div className="flex flex-shrink-0">
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">産業機械A社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">電子部品B社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">航空宇宙C社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">医療機器D社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">建設機械E社</span>
+                  </div>
+                </div>
+                <div className="mx-4 sm:mx-8 flex items-center justify-center w-24 sm:w-32 h-12 sm:h-16">
+                  <div className="w-20 sm:w-24 h-10 sm:h-12 bg-gradient-to-r from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs sm:text-sm">食品機械F社</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* 第三者機関からの評価 */}
-        <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-[#333333] mb-6">
-              第三者機関からの評価
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-[#37B7C4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                  </svg>
-                </div>
-                <div className="text-lg font-semibold text-[#333333] mb-2">ISO27001認証取得</div>
-                <div className="text-sm text-gray-600">情報セキュリティ管理システム</div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-[#37B7C4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-                  </svg>
-                </div>
-                <div className="text-lg font-semibold text-[#333333] mb-2">プライバシーマーク取得</div>
-                <div className="text-sm text-gray-600">個人情報保護体制</div>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-[#37B7C4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                  </svg>
-                </div>
-                <div className="text-lg font-semibold text-[#333333] mb-2">SOC2 Type2準拠</div>
-                <div className="text-sm text-gray-600">クラウドセキュリティ</div>
-              </div>
+        {/* セキュリティセクション */}
+        <div className="text-center py-8 sm:py-10 px-4 sm:px-10">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-5">
+            安心のセキュリティ
+          </h2>
+          <div className="flex flex-col sm:flex-row justify-around items-center sm:items-start flex-wrap gap-6 sm:gap-5 max-w-5xl mx-auto">
+            <div className="max-w-[250px] text-left sm:text-left text-center">
+              <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-2 sm:mb-2.5 flex items-center justify-center sm:justify-start gap-2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#333333]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                ISO27001認証取得
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600">
+                情報セキュリティ管理システムの国際標準規格に準拠し、データを安全に保管できます。
+                認証取得済み
+              </p>
+            </div>
+            <div className="max-w-[250px] text-left sm:text-left text-center">
+              <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-2 sm:mb-2.5 flex items-center justify-center sm:justify-start gap-2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#333333]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                プライバシーマーク取得
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600">
+                個人情報保護体制の確立と適切な個人情報の取り扱いを実施しています。
+              </p>
+            </div>
+            <div className="max-w-[250px] text-left sm:text-left text-center">
+              <h3 className="text-base sm:text-lg font-bold text-[#333333] mb-2 sm:mb-2.5 flex items-center justify-center sm:justify-start gap-2">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#333333]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                </svg>
+                SOC2 Type2準拠
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600">
+                クラウドセキュリティの国際的な監査基準に準拠した安全なシステム運用を行っています。
+              </p>
             </div>
           </div>
         </div>

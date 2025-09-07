@@ -1,30 +1,50 @@
 'use client';
 import { useState } from 'react';
-import Button from '@/components/ui/Button';
+import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationItems = [
-    { href: "#problem", label: "課題" },
-    { href: "#solution", label: "解決策" },
-    { href: "#features", label: "機能" },
-    { href: "#process", label: "導入の流れ" },
-    { href: "#case", label: "事例" },
+    { href: "#demo", label: "デモ体験" },
+    { href: "#problem-solution", label: "課題と解決" },
+    { href: "#features", label: "主要機能" },
+    { href: "#process", label: "導入ステップ" },
+    { href: "#case", label: "導入事例" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = 80; // ヘッダーの高さ分のオフセット
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="bg-white shadow-sm fixed w-full top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
+    <header className="bg-white shadow-md fixed w-full top-0 z-50">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-[#37B7C4] mr-2">
-              ARCHAIVE
-            </div>
-            <div className="text-sm text-gray-600 hidden md:block">
-              AI図面データ活用システム
-            </div>
+            <a 
+              href="#hero" 
+              onClick={(e) => handleNavClick(e, '#hero')}
+              className="flex items-center"
+            >
+              <Image
+                src="/images/ARCHAIVE_logo.png"
+                alt="ARCHAIVE"
+                width={120}
+                height={40}
+              />
+            </a>
           </div>
 
           {/* デスクトップナビゲーション */}
@@ -33,7 +53,8 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-medium"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-bold"
               >
                 {item.label}
               </a>
@@ -42,18 +63,20 @@ export default function Header() {
 
           {/* CTA ボタン */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              size="md"
-              className="border-[#37B7C4] text-[#37B7C4] hover:bg-[#37B7C4] hover:text-white bg-white border-2"
+            <a 
+              href="#cta"
+              onClick={(e) => handleNavClick(e, '#cta')}
+              className="bg-white border-2 border-gray-300 rounded text-black px-5 py-2.5 text-sm cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
             >
-              資料ダウンロード
-            </Button>
-            <Button
-              size="md"
-              className="bg-[#37B7C4] hover:bg-[#2a9aa5] text-white"
+              <span className="flex items-center gap-1.5">⬇ 資料ダウンロード</span>
+            </a>
+            <a 
+              href="#cta"
+              onClick={(e) => handleNavClick(e, '#cta')}
+              className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded px-5 py-2.5 text-sm cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
             >
-              無料相談
-            </Button>
+              <span className="flex items-center gap-1.5">✉ 無料トライアル</span>
+            </a>
           </div>
 
           {/* モバイルメニューボタン */}
@@ -87,26 +110,28 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-bold py-2"
+                  onClick={(e) => handleNavClick(e, item.href)}
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
             <div className="flex flex-col space-y-3 mt-6">
-              <Button
-                size="md"
-                className="border-[#37B7C4] text-[#37B7C4] hover:bg-[#37B7C4] hover:text-white bg-white border-2"
+              <a 
+                href="#cta"
+                onClick={(e) => handleNavClick(e, '#cta')}
+                className="bg-white border-2 border-gray-300 rounded text-black px-6 py-3 text-base cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
               >
-                資料ダウンロード
-              </Button>
-              <Button
-                size="md"
-                className="bg-[#37B7C4] hover:bg-[#2a9aa5] text-white"
+                <span className="flex items-center gap-1.5">⬇ 資料ダウンロード</span>
+              </a>
+              <a 
+                href="#cta"
+                onClick={(e) => handleNavClick(e, '#cta')}
+                className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded px-6 py-3 text-base cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
               >
-                無料相談
-              </Button>
+                <span className="flex items-center gap-1.5">✉ 無料トライアル</span>
+              </a>
             </div>
           </div>
         )}

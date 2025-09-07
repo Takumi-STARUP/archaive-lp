@@ -5,7 +5,11 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useEffect, useState } from 'react';
 
 export default function HeroQuickNav({ onFloatingNavChange }: { onFloatingNavChange?: (show: boolean) => void }) {
-  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1, triggerOnce: false });
+  const { ref, isIntersecting } = useIntersectionObserver({ 
+    threshold: 0,
+    rootMargin: '-80px 0px 0px 0px',  // ヘッダーの高さ（80px）を考慮
+    triggerOnce: false 
+  });
   const [showFloating, setShowFloating] = useState(false);
 
   useEffect(() => {
@@ -17,14 +21,13 @@ export default function HeroQuickNav({ onFloatingNavChange }: { onFloatingNavCha
     <>
       <section className="bg-white" ref={ref as any}>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
-            <QuickNavItem href="#problem" title="ARCHAIVEの" label="課題を見る" />
-            <QuickNavItem href="#solution" title="ARCHAIVEの" label="選ばれる理由を見る" />
-            <QuickNavItem href="#features" title="ARCHAIVEの" label="基本機能を見る" />
-            <QuickNavItem href="#about" title="ARCHAIVEの" label="概要を見る" />
-            <QuickNavItem href="#process" title="ARCHAIVEの" label="導入までの流れを見る" />
-            <QuickNavItem href="#case" title="ARCHAIVEの" label="導入事例を見る" />
-            <QuickNavItem href="#cta" title="ARCHAIVEの" label="相談・資料請求" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+            <QuickNavItem href="#demo" title="実際に" label="体験する" />
+            <QuickNavItem href="#problem-solution" title="ARCHAIVEが解決する" label="課題と解決策" />
+            <QuickNavItem href="#features" title="ARCHAIVEの" label="主要機能" />
+            <QuickNavItem href="#process" title="ARCHAIVEの" label="導入ステップ" />
+            <QuickNavItem href="#case" title="ARCHAIVEの" label="導入事例" />
+            <QuickNavItem href="#cta" title="今すぐ" label="相談・資料請求" />
           </div>
         </div>
       </section>
@@ -32,13 +35,12 @@ export default function HeroQuickNav({ onFloatingNavChange }: { onFloatingNavCha
       {showFloating && (
         <nav className="fixed left-0 top-[80px] bottom-0 z-40 hidden lg:block w-56">
           <div className="flex flex-col h-full bg-white/95 backdrop-blur shadow-lg border-r border-gray-200 divide-y divide-gray-200 rounded-none">
-            <FloatingItem href="#problem" title="ARCHAIVEの" label="課題を見る" />
-            <FloatingItem href="#solution" title="ARCHAIVEの" label="選ばれる理由を見る" />
-            <FloatingItem href="#features" title="ARCHAIVEの" label="基本機能を見る" />
-            <FloatingItem href="#about" title="ARCHAIVEの" label="概要を見る" />
-            <FloatingItem href="#process" title="ARCHAIVEの" label="導入までの流れを見る" />
-            <FloatingItem href="#case" title="ARCHAIVEの" label="導入事例を見る" />
-            <FloatingItem href="#cta" title="ARCHAIVEの" label="相談・資料請求" />
+            <FloatingItem href="#demo" title="実際に" label="体験する" />
+            <FloatingItem href="#problem-solution" title="ARCHAIVEが解決する" label="課題と解決策" />
+            <FloatingItem href="#features" title="ARCHAIVEの" label="主要機能" />
+            <FloatingItem href="#process" title="ARCHAIVEの" label="導入ステップ" />
+            <FloatingItem href="#case" title="ARCHAIVEの" label="導入事例" />
+            <FloatingItem href="#cta" title="今すぐ" label="相談・資料請求" />
           </div>
         </nav>
       )}
@@ -49,8 +51,7 @@ export default function HeroQuickNav({ onFloatingNavChange }: { onFloatingNavCha
 function QuickNavItem({ href, title, label }: { href: string; title: string; label: string }) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const targetElement = document.getElementById(targetId);
+    const targetElement = document.querySelector(href);
     if (targetElement) {
       const headerOffset = 80; // ヘッダーの高さ + 余白
       const elementPosition = targetElement.getBoundingClientRect().top;
@@ -87,8 +88,7 @@ function QuickNavItem({ href, title, label }: { href: string; title: string; lab
 function FloatingItem({ href, title, label }: { href: string; title: string; label: string }) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const targetElement = document.getElementById(targetId);
+    const targetElement = document.querySelector(href);
     if (targetElement) {
       const headerOffset = 80; // ヘッダーの高さ + 余白
       const elementPosition = targetElement.getBoundingClientRect().top;

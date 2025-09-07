@@ -1,12 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import HeroQuickNav from './HeroQuickNav';
 
-export default function HeroSectionSplit({ onFloatingNavChange }: { onFloatingNavChange?: (show: boolean) => void }) {
+export default function HeroSectionSplit() {
   return (
     <div className="transition-all duration-500">
-      <section className="relative min-h-[80vh] bg-[#37B7C4]">
+      <section className="relative bg-[#37B7C4] h-[75vh]">
+        {/* 背景画像 */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+          style={{ backgroundImage: "url('/images/背景＿幾何学的.png')" }}
+        ></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -15,9 +19,6 @@ export default function HeroSectionSplit({ onFloatingNavChange }: { onFloatingNa
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[500px]">
             <div className="text-left">
               <div className="mb-6">
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur text-white rounded-full text-sm font-semibold">
-                  製造業DXの新スタンダード
-                </span>
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
                 分断されたデータと暗黙知を繋ぎ、<br />
@@ -147,7 +148,6 @@ export default function HeroSectionSplit({ onFloatingNavChange }: { onFloatingNa
           </div>
         </div>
       </section>
-      <HeroQuickNav onFloatingNavChange={onFloatingNavChange} />
     </div>
   );
 }
