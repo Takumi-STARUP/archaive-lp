@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function CaseSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,7 +12,8 @@ export default function CaseSection() {
       title: "見積・納品書作成・請求業務が図面起点の案件管理により大幅に削減しました。",
       subtitle: "株式会社クロステック",
       author: "松田 忠明 様",
-      hasInterview: true
+      hasInterview: true,
+      link: "/case/crosstech"
     },
     {
       id: 2,
@@ -19,7 +21,8 @@ export default function CaseSection() {
       title: "図面を探す時間が大幅に削減され、類似案件の検索も容易になりました。",
       subtitle: "株式会社エイ・エム・シィ",
       author: "中西 弘栄 様",
-      hasInterview: true
+      hasInterview: true,
+      link: "/case/amc"
     },
     {
       id: 3,
@@ -27,7 +30,8 @@ export default function CaseSection() {
       title: "多数の図面を一括で処理し、概算見積もりをCSVで出力できる機能は、私たちの業務を効率化してくれています。",
       subtitle: "スエナミ工業株式会社",
       author: "横山 智一 様",
-      hasInterview: true
+      hasInterview: true,
+      link: "/case/suenami"
     }
   ];
 
@@ -60,7 +64,7 @@ export default function CaseSection() {
               {caseStudies.map((caseItem, index) => (
                 <div key={caseItem.id} className="min-w-full flex-shrink-0 flex flex-col items-center text-center">
                   {/* 画像と会社名・名前 */}
-                  <div className="relative w-full h-64 mb-4 overflow-hidden rounded-lg">
+                  <Link href={caseItem.link} className="relative w-full h-64 mb-4 overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
                     {caseItem.image === "/api/placeholder/300/180" ? (
                       <div className="w-full h-full bg-gradient-to-br from-[#37B7C4]/20 to-[#37B7C4]/10 flex items-center justify-center">
                         <svg className="w-16 h-16 text-[#37B7C4]/50" fill="currentColor" viewBox="0 0 24 24">
@@ -82,7 +86,7 @@ export default function CaseSection() {
                         <div className="text-xs">{caseItem.author}</div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                   
                   {/* コンテンツ */}
                   <div className="px-2">
@@ -104,7 +108,7 @@ export default function CaseSection() {
               {caseStudies.map((caseItem, index) => (
                 <div key={caseItem.id} className="min-w-[calc(50%-0.75rem)] md:min-w-[calc(33.333%-1.5rem)] flex-shrink-0 flex flex-col items-center text-center">
                   {/* 画像と会社名・名前 */}
-                  <div className="relative w-full h-72 md:h-80 mb-6 overflow-hidden rounded-lg">
+                  <Link href={caseItem.link} className="relative w-full h-72 md:h-80 mb-6 overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
                   {caseItem.image === "/api/placeholder/300/180" ? (
                     <div className="w-full h-full bg-gradient-to-br from-[#37B7C4]/20 to-[#37B7C4]/10 flex items-center justify-center">
                       <svg className="w-20 h-20 text-[#37B7C4]/50" fill="currentColor" viewBox="0 0 24 24">
@@ -126,7 +130,7 @@ export default function CaseSection() {
                       <div className="text-xs">{caseItem.author}</div>
                     </div>
                   </div>
-                </div>
+                </Link>
                 
                   {/* コンテンツ */}
                   <div className="px-4">
@@ -173,7 +177,7 @@ export default function CaseSection() {
         </div>
 
         {/* その他の導入企業 */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 md:mb-16">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 md:mb-16 mt-12 sm:mt-16 md:mt-20">
           <h3 className="text-xl sm:text-2xl font-bold text-[#333333] mb-4 sm:mb-6 text-center">他の導入企業様</h3>
           <div className="overflow-hidden">
             <div className="flex animate-scroll">

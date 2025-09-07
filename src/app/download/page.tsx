@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/lp_new/Header';
 import Footer from '@/components/lp_new/Footer';
 
-export default function LPNewApply() {
+export default function DownloadPage() {
   const [formData, setFormData] = useState({
     companyName: '',
     name: '',
@@ -32,8 +32,9 @@ export default function LPNewApply() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // フォーム送信処理
-    console.log('Form submitted:', formData);
-    alert('お申し込みを受け付けました。担当者より連絡させていただきます。');
+    console.log('Download form submitted:', formData);
+    // PDFダウンロード処理をここに追加
+    alert('資料をダウンロードしています。メールアドレスにもお送りしました。');
   };
 
   return (
@@ -42,14 +43,14 @@ export default function LPNewApply() {
 
       {/* メインコンテンツ */}
       <main className="flex-grow pt-20">
-        {/* ページヘッダー - 画面端まで伸ばす */}
-        <div className="bg-[#37B7C4] text-white py-16 px-4 shadow-lg">
+        {/* ページヘッダー */}
+        <div className="bg-gradient-to-r from-[#37B7C4] to-[#2a9aa5] text-white py-16 px-4 shadow-lg">
           <div className="container mx-auto max-w-3xl text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              無料デモ・トライアル申し込み
+              ARCHAIVE 製品資料ダウンロード
             </h1>
             <p className="text-white/90 text-lg">
-              実際の業務データを使ったカスタマイズデモをご覧いただけます
+              製造業向けAI図面検索システムの詳細資料をダウンロードしていただけます
             </p>
           </div>
         </div>
@@ -57,6 +58,15 @@ export default function LPNewApply() {
         <div className="container mx-auto px-4 max-w-3xl py-12">
           {/* フォーム */}
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-[#333333] mb-2">
+                資料ダウンロードフォーム
+              </h2>
+              <p className="text-gray-600">
+                以下の項目をご入力ください。資料をすぐにダウンロードいただけます。
+              </p>
+            </div>
+
             {/* 会社名 */}
             <div className="mb-6">
               <label className="block text-gray-700 font-semibold mb-2">
@@ -106,21 +116,6 @@ export default function LPNewApply() {
               />
             </div>
 
-            {/* 役職 */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold mb-2">
-                役職
-              </label>
-              <input
-                type="text"
-                name="position"
-                value={formData.position}
-                onChange={handleInputChange}
-                placeholder="例 | 部長"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent"
-              />
-            </div>
-
             {/* Email */}
             <div className="mb-6">
               <label className="block text-gray-700 font-semibold mb-2">
@@ -136,23 +131,7 @@ export default function LPNewApply() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent"
                 required
               />
-            </div>
-
-            {/* 電話番号 */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold mb-2">
-                電話番号
-                <span className="text-red-500 ml-1">*</span>
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="例 | 03-1234-5678"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent"
-                required
-              />
+              <p className="text-xs text-gray-500 mt-1">資料のダウンロードリンクをお送りします</p>
             </div>
 
             {/* 従業員数 */}
@@ -184,11 +163,10 @@ export default function LPNewApply() {
               </div>
             </div>
 
-            {/* 無料トライアルの目的 */}
+            {/* 資料ダウンロードの目的 */}
             <div className="mb-6">
               <label className="block text-gray-700 font-semibold mb-2">
-                無料トライアルの目的
-                <span className="text-red-500 ml-1">*</span>
+                資料ダウンロードの目的
               </label>
               <div className="relative">
                 <select
@@ -196,14 +174,13 @@ export default function LPNewApply() {
                   value={formData.purpose}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent appearance-none bg-white"
-                  required
                 >
                   <option value="">選択してください</option>
-                  <option value="知見を深める">ご自身の知見を深めるため</option>
-                  <option value="仕様を知る">仕様を知るため</option>
-                  <option value="課題解決">課題解決に向けた情報収集のため</option>
+                  <option value="情報収集">情報収集のため</option>
                   <option value="比較検討">他社サービスと比較検討するため</option>
-                  <option value="興味">興味があったため</option>
+                  <option value="課題解決">課題解決に向けた検討のため</option>
+                  <option value="上司報告">上司への報告資料として</option>
+                  <option value="その他">その他</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -211,21 +188,6 @@ export default function LPNewApply() {
                   </svg>
                 </div>
               </div>
-            </div>
-
-            {/* ご質問・ご要望 */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold mb-2">
-                ご質問・ご要望
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                placeholder="その他お問い合わせ内容がございましたらご記入ください"
-                rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent resize-none"
-              />
             </div>
 
             {/* プライバシーポリシー */}
@@ -243,18 +205,21 @@ export default function LPNewApply() {
                   <Link href="/privacy-policy" className="text-[#37B7C4] hover:underline">
                     プライバシーポリシー
                   </Link>
-                  を確認しました。
+                  を確認し、同意しました。
                   <span className="text-red-500 ml-1">*</span>
                 </span>
               </label>
             </div>
 
-            {/* 送信ボタン */}
+            {/* ダウンロードボタン */}
             <button
               type="submit"
-              className="w-full bg-[#37B7C4] hover:bg-[#2a9aa5] text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="w-full bg-gradient-to-r from-[#37B7C4] to-[#2a9aa5] hover:from-[#2a9aa5] hover:to-[#37B7C4] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
-              送信する
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+              </svg>
+              資料をダウンロード
             </button>
           </form>
 

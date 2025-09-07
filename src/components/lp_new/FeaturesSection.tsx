@@ -89,18 +89,20 @@ export default function FeaturesSection() {
             
             {/* AIチャット型データ検索 */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-6 sm:p-8 pb-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center mb-4 sm:mb-6 text-white">
+              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                   </svg>
                 </div>
-                <h4 className="text-lg sm:text-xl font-bold text-[#333333] mb-3 sm:mb-4">
-                  AIチャット型データ検索
-                </h4>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                  自然な言葉でAIに質問するだけで、あらゆるドキュメントを瞬時に検索。
-                </p>
+                <div className="flex-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#333333] mb-3 sm:mb-4">
+                    AIチャット型データ検索
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 h-10">
+                    自然な言葉でAIに質問するだけで、あらゆるドキュメントを瞬時に検索。
+                  </p>
+                </div>
               </div>
               
               {/* UI Preview */}
@@ -130,18 +132,20 @@ export default function FeaturesSection() {
 
             {/* 類似図面検索 */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-8 pb-4">
-                <div className="w-16 h-16 bg-[#37B7C4] rounded-full flex items-center justify-center mb-6 text-white">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-[#333333] mb-4">
-                  類似図面検索
-                </h4>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  アップロードした図面と似ている過去の図面をAIが検索し、変更点を抽出。
-                </p>
+                <div className="flex-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#333333] mb-3 sm:mb-4">
+                    類似図面検索
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 h-10">
+                    アップロードした図面と似ている過去の図面をAIが検索し、変更点を抽出。
+                  </p>
+                </div>
               </div>
               
               {/* UI Preview */}
@@ -175,18 +179,20 @@ export default function FeaturesSection() {
 
             {/* 図面自動解析 */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-8 pb-4">
-                <div className="w-16 h-16 bg-[#37B7C4] rounded-full flex items-center justify-center mb-6 text-white">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-[#333333] mb-4">
-                  図面自動解析
-                </h4>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  AIが図面や書類を自動で解析し、データ化。
-                </p>
+                <div className="flex-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#333333] mb-3 sm:mb-4">
+                    図面自動解析
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 h-10">
+                    AIが図面や書類を自動で解析し、データ化。
+                  </p>
+                </div>
               </div>
               
               {/* UI Preview */}
@@ -224,19 +230,21 @@ export default function FeaturesSection() {
 
             {/* 貴社専用機能開発 */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-8 pb-4">
-                <div className="w-16 h-16 bg-[#37B7C4] rounded-full flex items-center justify-center mb-6 text-white">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                     <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-[#333333] mb-4">
-                  貴社専用機能開発
-                </h4>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  貴社独自の業務プロセスに合わせたカスタマイズ機能を開発。
-                </p>
+                <div className="flex-1">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#333333] mb-3 sm:mb-4">
+                    貴社専用機能開発
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6 h-10">
+                    貴社独自の業務プロセスに合わせたカスタマイズ機能を開発。
+                  </p>
+                </div>
               </div>
               
               {/* UI Preview */}

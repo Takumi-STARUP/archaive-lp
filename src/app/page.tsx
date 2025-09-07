@@ -43,14 +43,16 @@ export default function Home() {
                 <InteractiveDemo />
               </div>
               <div className="text-center mt-8">
-                <p className="text-gray-600 mb-4">
-                  実際の業務データで、より詳細なデモをご覧いただけます
-                </p>
                 <a
                   href="/apply"
-                  className="inline-block bg-[#37B7C4] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded-lg px-8 py-4 text-lg font-bold cursor-pointer flex items-center justify-center min-w-[280px] hover:bg-[#37B7C4]/10 hover:shadow-lg transition-all duration-300 transform hover:scale-105 inline-flex"
                 >
-                  無料デモを申し込む
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    無料トライアル申し込み
+                  </span>
                 </a>
               </div>
             </div>

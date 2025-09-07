@@ -147,9 +147,6 @@ export default function HeroSection() {
                   <h3 className="text-xl sm:text-2xl font-bold text-[#333333] mb-2 sm:mb-3">
                     次のステップ：カスタマイズデモ
                   </h3>
-                  <p className="text-base sm:text-lg font-semibold text-gray-700 mb-1 sm:mb-2">
-                    実際の業務データで、より詳細なデモをご覧いただけます
-                  </p>
                   <p className="text-sm text-gray-600">
                     貴社の図面や仕様書を使った、実践的なデモンストレーション
                   </p>
@@ -158,14 +155,9 @@ export default function HeroSection() {
                 <div className="flex flex-col gap-4 justify-center items-center">
                   <Link
                     href="/apply"
-                    className="w-full sm:w-auto inline-block bg-[#37B7C4] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-[#2a9aa5] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 sm:min-w-[250px]"
+                    className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded px-5 py-2.5 text-sm cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
                   >
-                    <span className="flex items-center justify-center gap-2">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                      </svg>
-                      無料デモを申し込む
-                    </span>
+                    <span className="flex items-center gap-1.5">✉ 無料トライアル</span>
                   </Link>
                   
                   <div className="text-center mt-2 sm:mt-0">

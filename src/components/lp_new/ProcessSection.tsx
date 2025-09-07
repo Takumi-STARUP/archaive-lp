@@ -54,7 +54,9 @@ features: []
                 </div>
               </div>
               {index < steps.length - 1 && (
-                <div className="arrow w-0 h-0 border-l-5 border-r-5 border-t-5 border-l-transparent border-r-transparent border-t-[#37B7C4] mx-auto"></div>
+                <div className="flex justify-center mt-3 -mb-1 sm:mt-4 sm:-mb-2 md:mt-5 md:-mb-2">
+                  <div className="arrow w-0 h-0 border-l-5 border-r-5 border-t-5 border-l-transparent border-r-transparent border-t-[#37B7C4]"></div>
+                </div>
               )}
             </div>
           ))}
@@ -79,7 +81,6 @@ features: []
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
             border-top: 20px solid #37B7C4;
-            margin: 0 auto;
           }
         `}</style>
 

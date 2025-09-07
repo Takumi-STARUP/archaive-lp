@@ -48,9 +48,9 @@ export default function ProblemSolutionSection() {
         
         {/* Before/After 統合表示 */}
         <div className="p-8 rounded-xl">
-          <div className="relative flex items-stretch justify-center gap-4">
+          <div className="relative flex items-stretch justify-center gap-8">
             {/* Before - 3つの課題 */}
-            <div className="w-[48%] bg-gray-200 py-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-800 z-10">
+            <div className="w-[46%] bg-gray-200 py-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-800 z-10">
               <div className="px-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-8 text-center">導入前</h3>
                 <div className="flex flex-col justify-between flex-1">
@@ -85,167 +85,40 @@ export default function ProblemSolutionSection() {
               </div>
             </div>
             
-            {/* Connecting lines with animation */}
+            {/* Single middle arrow */}
             <div className="absolute inset-0 pointer-events-none z-30">
-              {/* Chevron arrow flow 1 */}
-              <div className="absolute top-[30%] left-[46%] w-[8%] -translate-y-1/2">
-                <div className="flex items-center justify-center space-x-1 h-4">
-                  <div className="chevron animate-chevron-flow">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-300">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-600">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-900">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Chevron arrow flow 2 */}
-              <div className="absolute top-[50%] left-[46%] w-[8%] -translate-y-1/2">
-                <div className="flex items-center justify-center space-x-1 h-4">
-                  <div className="chevron animate-chevron-flow animation-delay-1200">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-1500">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-1800">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-2100">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Chevron arrow flow 3 */}
-              <div className="absolute top-[70%] left-[46%] w-[8%] -translate-y-1/2">
-                <div className="flex items-center justify-center space-x-1 h-4">
-                  <div className="chevron animate-chevron-flow animation-delay-2400">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-2700">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-3000">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
-                  <div className="chevron animate-chevron-flow animation-delay-3300">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                    </svg>
-                  </div>
+              {/* Middle Arrow Only */}
+              <div 
+                className="absolute top-[50%] left-[46%] w-[8%] -translate-y-1/2 opacity-0 animate-fade-in"
+                style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
+              >
+                <div className="flex items-center justify-center">
+                  <svg className="w-16 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                  </svg>
                 </div>
               </div>
             </div>
             
             <style jsx>{`
-              @keyframes chevron-flow {
-                0% {
-                  color: #9CA3AF;
-                  opacity: 0.3;
-                  transform: scale(0.8);
+              @keyframes fade-in {
+                from {
+                  opacity: 0;
+                  transform: translateX(-10px);
                 }
-                25% {
-                  color: #6B7280;
-                  opacity: 0.6;
-                  transform: scale(1);
-                }
-                50% {
-                  color: #37B7C4;
+                to {
                   opacity: 1;
-                  transform: scale(1.1);
-                }
-                75% {
-                  color: #2a9aa5;
-                  opacity: 0.8;
-                  transform: scale(1);
-                }
-                100% {
-                  color: #9CA3AF;
-                  opacity: 0.3;
-                  transform: scale(0.8);
+                  transform: translateX(0);
                 }
               }
               
-              .animate-chevron-flow {
-                animation: chevron-flow 3s infinite ease-in-out;
-              }
-              
-              .animation-delay-300 {
-                animation-delay: 0.3s;
-              }
-              
-              .animation-delay-600 {
-                animation-delay: 0.6s;
-              }
-              
-              .animation-delay-900 {
-                animation-delay: 0.9s;
-              }
-              
-              .animation-delay-1200 {
-                animation-delay: 1.2s;
-              }
-              
-              .animation-delay-1500 {
-                animation-delay: 1.5s;
-              }
-              
-              .animation-delay-1800 {
-                animation-delay: 1.8s;
-              }
-              
-              .animation-delay-2100 {
-                animation-delay: 2.1s;
-              }
-              
-              .animation-delay-2400 {
-                animation-delay: 2.4s;
-              }
-              
-              .animation-delay-2700 {
-                animation-delay: 2.7s;
-              }
-              
-              .animation-delay-3000 {
-                animation-delay: 3s;
-              }
-              
-              .animation-delay-3300 {
-                animation-delay: 3.3s;
+              .animate-fade-in {
+                animation: fade-in 0.8s ease-out;
               }
             `}</style>
             
             {/* After - 3つの解決策 */}
-            <div className="w-[48%] bg-[#37B7C4]/10 py-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-800 z-10">
+            <div className="w-[46%] bg-[#37B7C4]/10 py-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-800 z-10">
               <div className="px-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-8 text-center text-[#37B7C4]">導入後</h3>
                 <div className="flex flex-col justify-between flex-1">

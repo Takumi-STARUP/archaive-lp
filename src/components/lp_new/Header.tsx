@@ -1,9 +1,13 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   const navigationItems = [
     { href: "#demo", label: "デモ体験" },
@@ -14,6 +18,12 @@ export default function Header() {
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // ホームページ以外からの場合はトップページに遷移
+    if (!isHomePage && href.startsWith('#')) {
+      window.location.href = '/' + href;
+      return;
+    }
+    
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
@@ -33,9 +43,8 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* ロゴ */}
           <div className="flex items-center">
-            <a 
-              href="#hero" 
-              onClick={(e) => handleNavClick(e, '#hero')}
+            <Link 
+              href="/" 
               className="flex items-center"
             >
               <Image
@@ -44,7 +53,7 @@ export default function Header() {
                 width={120}
                 height={40}
               />
-            </a>
+            </Link>
           </div>
 
           {/* デスクトップナビゲーション */}
@@ -63,20 +72,28 @@ export default function Header() {
 
           {/* CTA ボタン */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a 
-              href="#cta"
-              onClick={(e) => handleNavClick(e, '#cta')}
-              className="bg-white border-2 border-gray-300 rounded text-black px-5 py-2.5 text-sm cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
+            <Link 
+              href="/download"
+              className="bg-white border-2 border-gray-300 rounded-lg text-black px-6 py-3 text-sm font-bold cursor-pointer flex items-center justify-center hover:bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
-              <span className="flex items-center gap-1.5">⬇ 資料ダウンロード</span>
-            </a>
-            <a 
-              href="#cta"
-              onClick={(e) => handleNavClick(e, '#cta')}
-              className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded px-5 py-2.5 text-sm cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                </svg>
+                資料ダウンロード
+              </span>
+            </Link>
+            <Link 
+              href="/apply"
+              className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded-lg px-6 py-3 text-sm font-bold cursor-pointer flex items-center justify-center hover:bg-[#37B7C4]/10 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
-              <span className="flex items-center gap-1.5">✉ 無料トライアル</span>
-            </a>
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                無料トライアル
+              </span>
+            </Link>
           </div>
 
           {/* モバイルメニューボタン */}
@@ -118,20 +135,28 @@ export default function Header() {
               ))}
             </nav>
             <div className="flex flex-col space-y-3 mt-6">
-              <a 
-                href="#cta"
-                onClick={(e) => handleNavClick(e, '#cta')}
-                className="bg-white border-2 border-gray-300 rounded text-black px-6 py-3 text-base cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
+              <Link 
+                href="/download"
+                className="bg-white border-2 border-gray-300 rounded-lg text-black px-6 py-3 text-base font-bold cursor-pointer flex items-center justify-center hover:bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
               >
-                <span className="flex items-center gap-1.5">⬇ 資料ダウンロード</span>
-              </a>
-              <a 
-                href="#cta"
-                onClick={(e) => handleNavClick(e, '#cta')}
-                className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded px-6 py-3 text-base cursor-pointer flex items-center justify-center hover:opacity-80 transition-opacity font-semibold"
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                  </svg>
+                  資料ダウンロード
+                </span>
+              </Link>
+              <Link 
+                href="/apply"
+                className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded-lg px-6 py-3 text-base font-bold cursor-pointer flex items-center justify-center hover:bg-[#37B7C4]/10 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
               >
-                <span className="flex items-center gap-1.5">✉ 無料トライアル</span>
-              </a>
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  無料トライアル
+                </span>
+              </Link>
             </div>
           </div>
         )}

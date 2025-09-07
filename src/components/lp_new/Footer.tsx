@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -22,12 +23,15 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           {/* ロゴ */}
           <div className="max-w-md">
-            <Image
-              src="/images/ARCHAIVE_logo.png"
-              alt="ARCHAIVE"
-              width={140}
-              height={46}
-            />
+            <Link href="/" className="inline-block">
+              <Image
+                src="/images/ARCHAIVE_logo.png"
+                alt="ARCHAIVE"
+                width={140}
+                height={46}
+                className="cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* ナビゲーションリンク */}

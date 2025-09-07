@@ -32,14 +32,22 @@ export default function HeroSectionSplit() {
                   図面起点で分断されたデータを繋ぎ、会社の「知の資産」を未来へ引き継ぐ、製造業のためのAI開発基盤です。
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="#features" className="inline-flex items-center justify-center bg-white text-[#37B7C4] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4V7h3l-5-5z"/></svg>
-                  資料ダウンロード
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Link href="/download" className="bg-white border-2 border-white rounded-lg text-[#37B7C4] px-8 py-4 text-lg font-bold cursor-pointer flex items-center justify-center min-w-[280px] hover:bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                    資料ダウンロード
+                  </span>
                 </Link>
-                <Link href="/apply" className="inline-flex items-center justify-center bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#37B7C4] transition-all duration-300">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm4.5 4l5.5 3.5L17.5 8H6.5z"/></svg>
-                  無料トライアル
+                <Link href="/apply" className="bg-transparent border-2 border-white text-white rounded-lg px-8 py-4 text-lg font-bold cursor-pointer flex items-center justify-center min-w-[280px] hover:bg-white/10 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    無料トライアル申し込み
+                  </span>
                 </Link>
               </div>
             </div>
