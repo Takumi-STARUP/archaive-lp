@@ -36,7 +36,7 @@ export default function HeroSectionComplete() {
                     自然な言葉で質問するだけで、必要な情報が数秒で見つかります。
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href="/lp_new/apply" className="inline-block bg-[#37B7C4] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <Link href="/apply" className="inline-block bg-[#37B7C4] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                       無料デモを申し込む
                     </Link>
                     <Link href="#features" className="inline-block bg-white text-[#37B7C4] border-2 border-[#37B7C4] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#37B7C4]/10 transition-colors duration-200">
@@ -96,7 +96,7 @@ export default function HeroSectionComplete() {
                 
                 {/* CTAボタン */}
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-                  <Link href="/lp_new/apply" className="inline-block bg-white text-[#37B7C4] px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-300 hover:text-[#333] transition-all duration-300 shadow-2xl transform hover:scale-105">
+                  <Link href="/apply" className="inline-block bg-white text-[#37B7C4] px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-300 hover:text-[#333] transition-all duration-300 shadow-2xl transform hover:scale-105">
                     今すぐ無料デモを体験
                   </Link>
                   <Link href="#features" className="inline-block bg-transparent text-white border-2 border-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-[#37B7C4] transition-all duration-300">
@@ -174,7 +174,7 @@ export default function HeroSectionComplete() {
 
                 {/* CTA */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/lp_new/apply" className="inline-block bg-gradient-to-r from-[#37B7C4] to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                  <Link href="/apply" className="inline-block bg-gradient-to-r from-[#37B7C4] to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     無料デモを申し込む
                   </Link>
                   <Link href="#features" className="inline-block bg-white text-[#333] border-2 border-gray-200 px-8 py-4 rounded-xl font-semibold text-lg hover:border-[#37B7C4] hover:text-[#37B7C4] transition-colors duration-200">
@@ -219,7 +219,7 @@ export default function HeroSectionComplete() {
                     ARCHAIVEが、その架け橋となります。
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link href="/lp_new/apply" className="inline-block bg-[#37B7C4] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl">
+                    <Link href="/apply" className="inline-block bg-[#37B7C4] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl">
                       無料デモを申し込む
                     </Link>
                     <Link href="#features" className="inline-block bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 backdrop-blur transition-all duration-200">
@@ -345,7 +345,7 @@ export default function HeroSectionComplete() {
                 {/* CTA */}
                 <div className="text-center">
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href="/lp_new/apply" className="inline-block bg-[#37B7C4] text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <Link href="/apply" className="inline-block bg-[#37B7C4] text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                       無料デモを申し込む
                     </Link>
                     <Link href="#features" className="inline-block bg-white text-[#37B7C4] border-2 border-[#37B7C4] px-10 py-5 rounded-full font-semibold text-lg hover:bg-[#37B7C4]/10 transition-colors duration-200">

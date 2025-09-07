@@ -331,7 +331,7 @@ export default function HeroSectionVariations() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/lp_new/apply"
+                href="/apply"
                 className="inline-block bg-[#37B7C4] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2a9aa5] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 無料デモを申し込む

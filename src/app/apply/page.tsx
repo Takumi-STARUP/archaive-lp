@@ -40,20 +40,20 @@ export default function LPNewApply() {
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            <Link href="/lp_new" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <span className="text-2xl font-bold text-[#37B7C4]">ARCHAIVE</span>
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/lp_new#features" className="text-gray-600 hover:text-[#37B7C4] transition-colors">
+              <Link href="/#features" className="text-gray-600 hover:text-[#37B7C4] transition-colors">
                 機能
               </Link>
-              <Link href="/lp_new#case" className="text-gray-600 hover:text-[#37B7C4] transition-colors">
+              <Link href="/#case" className="text-gray-600 hover:text-[#37B7C4] transition-colors">
                 導入事例
               </Link>
-              <Link href="/lp_new#process" className="text-gray-600 hover:text-[#37B7C4] transition-colors">
+              <Link href="/#process" className="text-gray-600 hover:text-[#37B7C4] transition-colors">
                 導入プロセス
               </Link>
-              <Link href="/lp_new" className="bg-[#37B7C4] text-white px-6 py-2 rounded-lg hover:bg-[#2a9aa5] transition-colors">
+              <Link href="/" className="bg-[#37B7C4] text-white px-6 py-2 rounded-lg hover:bg-[#2a9aa5] transition-colors">
                 トップへ戻る
               </Link>
             </nav>
@@ -307,10 +307,10 @@ export default function LPNewApply() {
             <div>
               <h4 className="font-semibold mb-4">製品</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link href="/lp_new#features" className="hover:text-white transition-colors">機能一覧</Link></li>
-                <li><Link href="/lp_new#case" className="hover:text-white transition-colors">導入事例</Link></li>
-                <li><Link href="/lp_new#process" className="hover:text-white transition-colors">導入プロセス</Link></li>
-                <li><Link href="/lp_new/apply" className="hover:text-white transition-colors">無料トライアル</Link></li>
+                <li><Link href="/#features" className="hover:text-white transition-colors">機能一覧</Link></li>
+                <li><Link href="/#case" className="hover:text-white transition-colors">導入事例</Link></li>
+                <li><Link href="/#process" className="hover:text-white transition-colors">導入プロセス</Link></li>
+                <li><Link href="/apply" className="hover:text-white transition-colors">無料トライアル</Link></li>
               </ul>
             </div>
             

@@ -37,7 +37,7 @@ export default function HeroSectionSplit() {
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4V7h3l-5-5z"/></svg>
                   資料ダウンロード
                 </Link>
-                <Link href="/lp_new/apply" className="inline-flex items-center justify-center bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#37B7C4] transition-all duration-300">
+                <Link href="/apply" className="inline-flex items-center justify-center bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#37B7C4] transition-all duration-300">
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm4.5 4l5.5 3.5L17.5 8H6.5z"/></svg>
                   無料トライアル
                 </Link>
