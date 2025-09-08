@@ -9,7 +9,9 @@ export default function Footer() {
   };
 
   const links = [
-    { label: "機能一覧", href: "#features" },
+    { label: "ARCHAIVEとは", href: "#demo" },
+    { label: "課題と解決", href: "#problem-solution" },
+    { label: "主要機能", href: "#features" },
     { label: "導入事例", href: "#case" },
     { label: "導入ステップ", href: "#process" },
     { label: "お問い合わせ", href: "#cta" },
@@ -42,6 +44,20 @@ export default function Footer() {
                   key={index}
                   href={link.href}
                   className="text-gray-400 hover:text-[#37B7C4] transition-colors duration-200 text-sm"
+                  onClick={(e) => {
+                    if (!link.external && link.href.startsWith('#')) {
+                      e.preventDefault();
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        const offset = 80;
+                        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                        window.scrollTo({
+                          top: elementPosition - offset,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }
+                  }}
                 >
                   {link.label}
                 </a>

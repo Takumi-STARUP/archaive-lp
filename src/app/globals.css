@@ -24,15 +24,16 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes scroll {
+@keyframes scroll-left {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-1640px);
   }
 }
 
 .animate-scroll {
-  animation: scroll 20s linear infinite;
+  animation: scroll-left 25s linear infinite;
+  will-change: transform;
 }

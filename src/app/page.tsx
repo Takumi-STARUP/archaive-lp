@@ -1,23 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import HeroSectionSplit from '@/components/lp_new/HeroSectionSplit';
 import HeroQuickNav from '@/components/lp_new/HeroQuickNav';
-import InteractiveDemo from '@/components/lp_new/InteractiveDemo';
 import ProblemSolutionSection from '@/components/lp_new/ProblemSolutionSection';
 import FeaturesSection from '@/components/lp_new/FeaturesSection';
 import ProcessSection from '@/components/lp_new/ProcessSection';
 import CaseSection from '@/components/lp_new/CaseSection';
 import CTASection from '@/components/lp_new/CTASection';
+import SecuritySection from '@/components/lp_new/SecuritySection';
 import Header from '@/components/lp_new/Header';
 import Footer from '@/components/lp_new/Footer';
 
 export default function Home() {
-  const [showFloatingNav, setShowFloatingNav] = useState(false);
-
-  const handleFloatingNavChange = (show: boolean) => {
-    setShowFloatingNav(show);
-  };
 
   return (
     <div className="font-noto-sans-jp">
@@ -26,21 +20,25 @@ export default function Home() {
         <div id="hero">
           <HeroSectionSplit />
         </div>
-        <HeroQuickNav onFloatingNavChange={handleFloatingNavChange} />
-        {/* インタラクティブデモセクション */}
-        <div id="demo" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <HeroQuickNav />
+        {/* ARCHAIVEとは？セクション */}
+        <div id="demo" className="mt-16">
           <section className="py-20 bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#333333] mb-4">
-                  実際の操作画面で体験してみましょう
+                  ARCHAIVEとは？
                 </h2>
-                <p className="text-sm text-[#37B7C4] font-medium">
-                  ※ デモ環境のため、実際のデータは表示されません
+                <p className="text-lg text-[#666666] font-bold">
+                  AIを活用した製造業向けの次世代ナレッジ検索システム
                 </p>
               </div>
               <div className="max-w-6xl mx-auto">
-                <InteractiveDemo />
+                <img 
+                  src="/images/サブUI.png" 
+                  alt="ARCHAIVE デモ画面" 
+                  className="w-full h-auto rounded-xl"
+                />
               </div>
               <div className="text-center mt-8">
                 <a
@@ -58,25 +56,26 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <div id="problem-solution" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="problem-solution" className="mt-16">
           <ProblemSolutionSection />
         </div>
-        <div id="features" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="features" className="mt-16">
           <FeaturesSection />
         </div>
-        <div id="process" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
-          <ProcessSection />
-        </div>
-        <div id="case" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="case" className="mt-16">
           <CaseSection />
         </div>
-        <div id="cta" className={`transition-all duration-300 mt-16 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
+        <div id="process" className="mt-8">
+          <ProcessSection />
+        </div>
+        <div id="security" className="mt-16">
+          <SecuritySection />
+        </div>
+        <div id="cta" className="mt-16">
           <CTASection />
         </div>
       </main>
-      <div className={`transition-all duration-300 ${showFloatingNav ? 'lg:pl-56' : ''}`}>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

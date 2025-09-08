@@ -10,11 +10,11 @@ export default function Header() {
   const isHomePage = pathname === '/';
 
   const navigationItems = [
-    { href: "#demo", label: "デモ体験" },
+    { href: "#demo", label: "ARCHAIVEとは" },
     { href: "#problem-solution", label: "課題と解決" },
     { href: "#features", label: "主要機能" },
-    { href: "#process", label: "導入ステップ" },
     { href: "#case", label: "導入事例" },
+    { href: "#process", label: "導入ステップ" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="container mx-auto px-6 py-4">
+      <div className="w-full px-8 py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
           <div className="flex items-center">
@@ -50,14 +50,15 @@ export default function Header() {
               <Image
                 src="/images/ARCHAIVE_logo.png"
                 alt="ARCHAIVE"
-                width={120}
-                height={40}
+                width={180}
+                height={60}
+                priority
               />
             </Link>
           </div>
 
           {/* デスクトップナビゲーション */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navigationItems.map((item) => (
               <a
                 key={item.href}
@@ -80,7 +81,7 @@ export default function Header() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
                 </svg>
-                資料ダウンロード
+                サービス紹介資料
               </span>
             </Link>
             <Link 
@@ -91,7 +92,7 @@ export default function Header() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
-                無料トライアル
+                無料デモの申込み
               </span>
             </Link>
           </div>
@@ -143,7 +144,7 @@ export default function Header() {
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
                   </svg>
-                  資料ダウンロード
+                  サービス紹介資料
                 </span>
               </Link>
               <Link 
@@ -154,7 +155,7 @@ export default function Header() {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
-                  無料トライアル
+                  無料デモの申込み
                 </span>
               </Link>
             </div>

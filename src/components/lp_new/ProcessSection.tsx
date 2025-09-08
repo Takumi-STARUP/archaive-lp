@@ -26,11 +26,11 @@ features: []
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 bg-white">
+    <section className="py-8 sm:py-12 md:py-16 px-4 bg-gray-100">
       <div className="container mx-auto max-w-6xl">
         {/* セクションタイトル */}
-        <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4 sm:mb-6 leading-tight">
+        <div className="text-center mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-2 sm:mb-3 leading-tight">
             業務にシステムを合わせるのであって、<br className="hidden sm:block" />
             <span className="sm:hidden"> </span>システムに業務を合わせるのではない。
           </h2>
