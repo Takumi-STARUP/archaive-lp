@@ -38,7 +38,7 @@ export default function DownloadPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
 
       {/* メインコンテンツ */}
@@ -55,9 +55,19 @@ export default function DownloadPage() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 max-w-3xl py-12">
+        <div className="container mx-auto px-4 max-w-3xl py-12 relative">
+          {/* 背景画像 - フォームの後ろに配置 */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <img 
+              src="/images/トップUI.png" 
+              alt="" 
+              className="opacity-50 blur-sm"
+              style={{ width: '2000px', maxWidth: '180%', height: 'auto' }}
+            />
+          </div>
+          
           {/* フォーム */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 relative z-10">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-[#333333] mb-2">
                 資料ダウンロードフォーム
@@ -192,13 +202,13 @@ export default function DownloadPage() {
 
             {/* プライバシーポリシー */}
             <div className="mb-8">
-              <label className="flex items-start">
+              <label className="flex items-center">
                 <input
                   type="checkbox"
                   name="privacyPolicy"
                   checked={formData.privacyPolicy}
                   onChange={handleInputChange}
-                  className="mt-1 mr-3 w-5 h-5 text-[#37B7C4] border-gray-300 rounded focus:ring-[#37B7C4]"
+                  className="mr-3 w-5 h-5 text-[#37B7C4] border-gray-300 rounded focus:ring-[#37B7C4]"
                   required
                 />
                 <span className="text-sm text-gray-700">

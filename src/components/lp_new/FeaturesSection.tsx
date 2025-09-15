@@ -1,6 +1,37 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 export default function FeaturesSection() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [currentTooltip, setCurrentTooltip] = useState(0);
+  const [intervalId, setIntervalId] = useState(null);
+
+  const tooltipData = {
+    0: ['特徴1', '特徴2', '特徴3'],
+    1: ['特徴1', '特徴2', '特徴3'],
+    2: ['特徴1', '特徴2', '特徴3'],
+    3: ['特徴1', '特徴2', '特徴3']
+  };
+
+  useEffect(() => {
+    if (hoveredCard !== null) {
+      setCurrentTooltip(0);
+      const id = setInterval(() => {
+        setCurrentTooltip(prev => {
+          const next = prev + 1;
+          return next >= 3 ? 2 : next; // Stop at 2 (all 3 visible)
+        });
+      }, 300);
+      setIntervalId(id);
+      return () => clearInterval(id);
+    } else {
+      if (intervalId) {
+        clearInterval(intervalId);
+        setIntervalId(null);
+      }
+    }
+  }, [hoveredCard]);
   const mainFeatures = [
     {
       icon: (
@@ -99,22 +130,28 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 bg-gray-100">
+    <section className="py-12 sm:py-16 md:py-20 px-4 bg-[#37B7C4]/80">
       <div className="container mx-auto max-w-6xl">
         {/* セクションタイトル */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             ARCHAIVEの主な機能
           </h2>
         </div>
 
         {/* メイン機能 */}
         <div className="mb-8 sm:mb-12 md:mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
             
             {/* AIチャット型データ検索 */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+            <div 
+              className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative transform hover:-translate-y-2 hover:scale-105 ${
+                hoveredCard === 0 ? 'z-40' : 'z-10'
+              }`}
+              onMouseEnter={() => setHoveredCard(0)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="p-6 sm:p-8 pb-2 flex items-start min-h-[120px]">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
@@ -131,18 +168,43 @@ export default function FeaturesSection() {
               </div>
               
               {/* UI Preview */}
-              <div className="mx-4 mb-4">
+              <div className="mx-4 mb-6 relative overflow-visible">
                 <img 
                   src="/images/サブUI.png" 
                   alt="AIチャット型データ検索 UI" 
                   className="w-full h-auto rounded-xl"
                 />
+                {/* 吹き出し群 */}
+                <div className="absolute -right-12 top-8 space-y-2 z-50">
+                  {tooltipData[0].map((tooltip, index) => (
+                    <div 
+                      key={index}
+                      className={`bg-white rounded-lg shadow-xl p-3 border-2 border-[#37B7C4] relative transition-all duration-300 ${
+                        hoveredCard === 0 && index <= currentTooltip 
+                          ? 'opacity-100 scale-100 translate-x-0' 
+                          : 'opacity-0 scale-95 translate-x-4 pointer-events-none'
+                      }`}
+                    >
+                      <div className="text-sm text-gray-600 text-center min-w-[180px] whitespace-nowrap">
+                        {tooltip}
+                      </div>
+                      {/* 左向き矢印 */}
+                      <div className="absolute left-[-8px] top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-[#37B7C4]"></div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* 類似図面検索 */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+            <div 
+              className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative transform hover:-translate-y-2 hover:scale-105 ${
+                hoveredCard === 1 ? 'z-40' : 'z-10'
+              }`}
+              onMouseEnter={() => setHoveredCard(1)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="p-6 sm:p-8 pb-2 flex items-start min-h-[120px]">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -159,18 +221,43 @@ export default function FeaturesSection() {
               </div>
               
               {/* UI Preview */}
-              <div className="mx-4 mb-4">
+              <div className="mx-4 mb-6 relative overflow-visible">
                 <img 
                   src="/images/サブUI.png" 
                   alt="類似検索・自動解析 UI" 
                   className="w-full h-auto rounded-xl"
                 />
+                {/* 吹き出し群 */}
+                <div className="absolute -right-12 top-8 space-y-2 z-50">
+                  {tooltipData[1].map((tooltip, index) => (
+                    <div 
+                      key={index}
+                      className={`bg-white rounded-lg shadow-xl p-3 border-2 border-[#37B7C4] relative transition-all duration-300 ${
+                        hoveredCard === 1 && index <= currentTooltip 
+                          ? 'opacity-100 scale-100 translate-x-0' 
+                          : 'opacity-0 scale-95 translate-x-4 pointer-events-none'
+                      }`}
+                    >
+                      <div className="text-sm text-gray-600 text-center min-w-[180px] whitespace-nowrap">
+                        {tooltip}
+                      </div>
+                      {/* 左向き矢印 */}
+                      <div className="absolute left-[-8px] top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-[#37B7C4]"></div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* AI見積エージェント */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+            <div 
+              className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative transform hover:-translate-y-2 hover:scale-105 ${
+                hoveredCard === 2 ? 'z-40' : 'z-10'
+              }`}
+              onMouseEnter={() => setHoveredCard(2)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="p-6 sm:p-8 pb-2 flex items-start min-h-[120px]">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -187,18 +274,43 @@ export default function FeaturesSection() {
               </div>
               
               {/* UI Preview */}
-              <div className="mx-4 mb-4">
+              <div className="mx-4 mb-6 relative overflow-visible">
                 <img 
                   src="/images/サブUI.png" 
                   alt="AI見積エージェント UI" 
                   className="w-full h-auto rounded-xl"
                 />
+                {/* 吹き出し群 */}
+                <div className="absolute -right-12 top-8 space-y-2 z-50">
+                  {tooltipData[2].map((tooltip, index) => (
+                    <div 
+                      key={index}
+                      className={`bg-white rounded-lg shadow-xl p-3 border-2 border-[#37B7C4] relative transition-all duration-300 ${
+                        hoveredCard === 2 && index <= currentTooltip 
+                          ? 'opacity-100 scale-100 translate-x-0' 
+                          : 'opacity-0 scale-95 translate-x-4 pointer-events-none'
+                      }`}
+                    >
+                      <div className="text-sm text-gray-600 text-center min-w-[180px] whitespace-nowrap">
+                        {tooltip}
+                      </div>
+                      {/* 左向き矢印 */}
+                      <div className="absolute left-[-8px] top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-[#37B7C4]"></div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* カスタムAIソリューションサービス */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="p-6 sm:p-8 pb-4 flex items-start min-h-[120px]">
+            <div 
+              className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative transform hover:-translate-y-2 hover:scale-105 ${
+                hoveredCard === 3 ? 'z-40' : 'z-10'
+              }`}
+              onMouseEnter={() => setHoveredCard(3)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="p-6 sm:p-8 pb-2 flex items-start min-h-[120px]">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#37B7C4] rounded-full flex items-center justify-center text-white mr-4 sm:mr-6 flex-shrink-0">
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
@@ -216,12 +328,31 @@ export default function FeaturesSection() {
               </div>
               
               {/* UI Preview */}
-              <div className="mx-4 mb-4">
+              <div className="mx-4 mb-6 relative overflow-visible">
                 <img 
                   src="/images/サブUI.png" 
                   alt="カスタムAIソリューションサービス UI" 
                   className="w-full h-auto rounded-xl"
                 />
+                {/* 吹き出し群 */}
+                <div className="absolute -right-12 top-8 space-y-2 z-50">
+                  {tooltipData[3].map((tooltip, index) => (
+                    <div 
+                      key={index}
+                      className={`bg-white rounded-lg shadow-xl p-3 border-2 border-[#37B7C4] relative transition-all duration-300 ${
+                        hoveredCard === 3 && index <= currentTooltip 
+                          ? 'opacity-100 scale-100 translate-x-0' 
+                          : 'opacity-0 scale-95 translate-x-4 pointer-events-none'
+                      }`}
+                    >
+                      <div className="text-sm text-gray-600 text-center min-w-[180px] whitespace-nowrap">
+                        {tooltip}
+                      </div>
+                      {/* 左向き矢印 */}
+                      <div className="absolute left-[-8px] top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-t-transparent border-b-transparent border-r-[#37B7C4]"></div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             

@@ -33,7 +33,7 @@ export default function NewsSection() {
   };
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 px-4 bg-white">
+    <section className="py-8 sm:py-12 md:py-16 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         {/* セクションタイトル */}
         <div className="text-center mb-8 sm:mb-10">
@@ -51,27 +51,29 @@ export default function NewsSection() {
               className="block border-b border-gray-300 py-6 hover:bg-gray-50 transition-colors duration-200 px-4"
             >
               <div className="news-item">
-                {/* 日付とタグ */}
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="font-bold text-gray-800">
+                {/* 日付、タグ、タイトルを1列に */}
+                <div className="flex items-center gap-4">
+                  {/* 日付 */}
+                  <div className="font-bold text-gray-800 flex-shrink-0">
                     {item.date}
                   </div>
+                  
                   {/* タグ */}
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-shrink-0">
                     {item.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className={`inline-block px-3 py-1 rounded-full text-white text-xs ${getTagColor(tag.type)}`}
+                        className={`inline-block px-4 py-1 rounded-full text-white text-xs w-32 text-center ${getTagColor(tag.type)}`}
                       >
                         {tag.label}
                       </span>
                     ))}
                   </div>
-                </div>
-                
-                {/* コンテンツ */}
-                <div className="text-lg font-bold text-gray-700 hover:text-[#37B7C4] transition-colors">
-                  {item.content}
+                  
+                  {/* コンテンツ（タイトル） */}
+                  <div className="text-lg font-bold text-gray-700 hover:text-[#37B7C4] transition-colors flex-1">
+                    {item.content}
+                  </div>
                 </div>
               </div>
             </a>

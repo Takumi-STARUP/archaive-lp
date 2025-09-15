@@ -10,7 +10,7 @@ export default function LogisticsNewspaperNews() {
       <Header />
       <main className="pt-20">
         {/* News Header */}
-        <div className="bg-[#00a9c9] text-white text-center py-12">
+        <div className="bg-[#37B7C4] text-white text-center py-12">
           <h1 className="m-0 text-5xl font-bold">NEWS</h1>
           <p className="m-0 text-2xl">お知らせ</p>
         </div>

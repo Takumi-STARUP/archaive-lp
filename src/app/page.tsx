@@ -24,24 +24,25 @@ export default function Home() {
         <HeroQuickNav />
         {/* ARCHAIVEとは？セクション */}
         <div id="demo" className="mt-16">
-          <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+          <section className="py-12 bg-white">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#333333] mb-4">
-                  ARCHAIVEとは？
-                </h2>
-                <p className="text-lg text-[#666666] font-bold">
-                  AIを活用した製造業向けの次世代ナレッジ検索システム
-                </p>
-              </div>
-              <div className="max-w-6xl mx-auto">
-                <img 
-                  src="/images/サブUI.png" 
-                  alt="ARCHAIVE デモ画面" 
-                  className="w-full h-auto rounded-xl"
-                />
-              </div>
-              <div className="text-center mt-8">
+              <div className="bg-gray-100 rounded-2xl p-8 md:p-12">
+                <div className="text-center mb-12">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#333333] mb-4">
+                    ARCHAIVEとは？
+                  </h2>
+                  <p className="text-lg text-[#666666] font-bold">
+                    AIを活用した製造業向けの次世代ナレッジ検索システム
+                  </p>
+                </div>
+                <div className="max-w-5xl mx-auto">
+                  <img 
+                    src="/images/サブUI.png" 
+                    alt="ARCHAIVE デモ画面" 
+                    className="w-full h-auto rounded-xl border border-gray-300"
+                  />
+                </div>
+                <div className="text-center mt-8">
                 <a
                   href="/apply"
                   className="bg-transparent border-2 border-[#37B7C4] text-[#37B7C4] rounded-lg px-8 py-4 text-lg font-bold cursor-pointer flex items-center justify-center min-w-[280px] hover:bg-[#37B7C4]/10 hover:shadow-lg transition-all duration-300 transform hover:scale-105 inline-flex"
@@ -53,6 +54,7 @@ export default function Home() {
                     無料トライアル申し込み
                   </span>
                 </a>
+                </div>
               </div>
             </div>
           </section>

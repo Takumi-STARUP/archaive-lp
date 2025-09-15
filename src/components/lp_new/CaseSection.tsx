@@ -1,9 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function CaseSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  
+  // カード幅 + ギャップ
+  const cardWidth = 600; // px
+  const gap = 32; // 8rem = 32px (デスクトップ)
+  const slideDistance = cardWidth + gap; // 632px
 
   const caseStudies = [
     {
@@ -35,13 +42,77 @@ export default function CaseSection() {
     }
   ];
 
+  // 初期位置を中央セットに設定し、無限に続く構造を作る
+  useEffect(() => {
+    // 第2セットの開始位置で始まる
+    setTranslateX(-slideDistance * caseStudies.length);
+  }, [slideDistance, caseStudies.length]);
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    setIsTransitioning(true);
+    // 中央セットの該当インデックスに移動
+    setTranslateX(-slideDistance * (caseStudies.length + index));
+  };
+
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % caseStudies.length);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % caseStudies.length;
+      setIsTransitioning(true);
+      
+      // index2からindex0に移る時は、右に632px進んで第3セットのindex0に移動
+      if (prevIndex === 2 && newIndex === 0) {
+        // 右に632px進んで第3セットのindex0に移動
+        setTranslateX(-slideDistance * (caseStudies.length * 2));
+        
+        // アニメーション完了後、第2セットのindex0に無音でリセット
+        setTimeout(() => {
+          setIsTransitioning(false);
+          setTranslateX(-slideDistance * caseStudies.length); // 第2セットのindex0
+          // 短い遅延でトランジションを再度有効化
+          setTimeout(() => {
+            setIsTransitioning(true);
+          }, 50);
+        }, 500);
+      } else {
+        // 通常の移動（第2セット内での移動）
+        const targetPosition = -slideDistance * (caseStudies.length + newIndex);
+        setTranslateX(targetPosition);
+      }
+      
+      return newIndex;
+    });
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + caseStudies.length) % caseStudies.length);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex - 1 + caseStudies.length) % caseStudies.length;
+      setIsTransitioning(true);
+      
+      // index0からindex2に移る時は、左に632px進んで第1セットのindex2に移動
+      if (prevIndex === 0 && newIndex === 2) {
+        // 左に632px進んで第1セットのindex2に移動
+        setTranslateX(-slideDistance * (newIndex)); // 第1セットのindex2
+        
+        // アニメーション完了後、第2セットのindex2に無音でリセット
+        setTimeout(() => {
+          setIsTransitioning(false);
+          setTranslateX(-slideDistance * (caseStudies.length + newIndex)); // 第2セットのindex2
+          // 短い遅延でトランジションを再度有効化
+          setTimeout(() => {
+            setIsTransitioning(true);
+          }, 50);
+        }, 500);
+      } else {
+        // 通常の移動（第2セット内での移動）
+        const targetPosition = -slideDistance * (caseStudies.length + newIndex);
+        setTranslateX(targetPosition);
+      }
+      
+      return newIndex;
+    });
   };
+
 
   return (
     <section className="py-12 sm:py-16 md:py-20 px-4 bg-white">
@@ -90,7 +161,7 @@ export default function CaseSection() {
                   
                   {/* コンテンツ */}
                   <div className="px-2">
-                    <p className="text-base font-bold text-[#333333] leading-relaxed">
+                    <p className="text-base font-bold text-[#333333] leading-relaxed min-h-[3rem] flex items-center">
                       {caseItem.title}
                     </p>
                   </div>
@@ -100,13 +171,14 @@ export default function CaseSection() {
           </div>
           
           {/* デスクトップ表示 (sm以上) */}
-          <div className="hidden sm:block">
+          <div className="hidden sm:block overflow-hidden">
             <div 
-              className="flex transition-transform duration-500 ease-in-out gap-6 md:gap-8"
-              style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+              className={`flex gap-6 md:gap-8 ${isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''}`}
+              style={{ transform: `translateX(${translateX}px)` }}
             >
+              {/* 第1セット */}
               {caseStudies.map((caseItem, index) => (
-                <div key={caseItem.id} className="min-w-[calc(50%-0.75rem)] md:min-w-[calc(33.333%-1.5rem)] flex-shrink-0 flex flex-col items-center text-center">
+                <div key={`first-${caseItem.id}`} className="w-96 md:w-[600px] flex-shrink-0 flex flex-col items-center text-center">
                   {/* 画像と会社名・名前 */}
                   <Link href={caseItem.link} className="relative w-full h-72 md:h-80 mb-6 overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
                   {caseItem.image === "/api/placeholder/300/180" ? (
@@ -134,7 +206,81 @@ export default function CaseSection() {
                 
                   {/* コンテンツ */}
                   <div className="px-4">
-                    <p className="text-lg font-bold text-[#333333] leading-relaxed">
+                    <p className="text-lg font-bold text-[#333333] leading-relaxed min-h-[3.5rem] flex items-center">
+                      {caseItem.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
+              
+              {/* 第2セット（メイン） */}
+              {caseStudies.map((caseItem, index) => (
+                <div key={`second-${caseItem.id}`} className="w-96 md:w-[600px] flex-shrink-0 flex flex-col items-center text-center">
+                  {/* 画像と会社名・名前 */}
+                  <Link href={caseItem.link} className="relative w-full h-72 md:h-80 mb-6 overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
+                  {caseItem.image === "/api/placeholder/300/180" ? (
+                    <div className="w-full h-full bg-gradient-to-br from-[#37B7C4]/20 to-[#37B7C4]/10 flex items-center justify-center">
+                      <svg className="w-20 h-20 text-[#37B7C4]/50" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                  ) : (
+                    <img 
+                      src={caseItem.image} 
+                      alt={caseItem.author} 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  
+                  {/* 黒グラデーションと会社名・名前オーバーレイ */}
+                  <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                    <div className="p-4 text-white text-left">
+                      <div className="text-sm font-bold">{caseItem.subtitle}</div>
+                      <div className="text-xs">{caseItem.author}</div>
+                    </div>
+                  </div>
+                </Link>
+                
+                  {/* コンテンツ */}
+                  <div className="px-4">
+                    <p className="text-lg font-bold text-[#333333] leading-relaxed min-h-[3.5rem] flex items-center">
+                      {caseItem.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
+              
+              {/* 第3セット */}
+              {caseStudies.map((caseItem, index) => (
+                <div key={`third-${caseItem.id}`} className="w-96 md:w-[600px] flex-shrink-0 flex flex-col items-center text-center">
+                  {/* 画像と会社名・名前 */}
+                  <Link href={caseItem.link} className="relative w-full h-72 md:h-80 mb-6 overflow-hidden rounded-lg cursor-pointer hover:opacity-90 transition-opacity">
+                  {caseItem.image === "/api/placeholder/300/180" ? (
+                    <div className="w-full h-full bg-gradient-to-br from-[#37B7C4]/20 to-[#37B7C4]/10 flex items-center justify-center">
+                      <svg className="w-20 h-20 text-[#37B7C4]/50" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                  ) : (
+                    <img 
+                      src={caseItem.image} 
+                      alt={caseItem.author} 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  
+                  {/* 黒グラデーションと会社名・名前オーバーレイ */}
+                  <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                    <div className="p-4 text-white text-left">
+                      <div className="text-sm font-bold">{caseItem.subtitle}</div>
+                      <div className="text-xs">{caseItem.author}</div>
+                    </div>
+                  </div>
+                </Link>
+                
+                  {/* コンテンツ */}
+                  <div className="px-4">
+                    <p className="text-lg font-bold text-[#333333] leading-relaxed min-h-[3.5rem] flex items-center">
                       {caseItem.title}
                     </p>
                   </div>
@@ -162,7 +308,7 @@ export default function CaseSection() {
                 className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-colors duration-300 cursor-pointer ${
                   index === currentIndex ? 'bg-[#37B7C4]' : 'bg-gray-300'
                 }`}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToSlide(index)}
               />
             ))}
           </div>

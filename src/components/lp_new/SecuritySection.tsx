@@ -1,3 +1,7 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
 export default function SecuritySection() {
   const securityMeasures = [
     {
@@ -54,16 +58,26 @@ export default function SecuritySection() {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {securityMeasures.map((measure, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-6 sm:p-8">
+            <div 
+              key={index} 
+              className="bg-gray-50 rounded-lg p-6 sm:p-8 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border border-[#37B7C4]"
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
               <div className="flex items-center mb-4 sm:mb-6">
-                {measure.icon}
+                <div className="animate-pulse">
+                  {measure.icon}
+                </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#333333] ml-3">
                   {measure.title}
                 </h3>
               </div>
               <ul className="space-y-3 sm:space-y-4">
                 {measure.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start">
+                  <li 
+                    key={itemIndex} 
+                    className="flex items-start opacity-0 animate-fadeInUp"
+                    style={{ animationDelay: `${(index * 200) + (itemIndex * 100)}ms`, animationFillMode: 'forwards' }}
+                  >
                     <span className="text-[#37B7C4] text-2xl mt-0 mr-3 flex-shrink-0">・</span>
                     <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{item}</span>
                   </li>
