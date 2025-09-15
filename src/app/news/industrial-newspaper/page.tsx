@@ -18,7 +18,7 @@ export default function IndustrialNewspaperNews() {
         {/* News Page */}
         <div className="bg-[#f4f4f4] py-20 flex justify-center min-h-screen">
           <div className="w-[70%] max-w-none mx-auto">
-            <p className="text-[#888] text-sm mb-6">2025/5/24</p>
+            <p className="text-[#888] text-sm mb-6">2025/3/1</p>
             <h2 className="text-2xl mt-6 mb-12 font-bold">日刊工業新聞で取り上げられました</h2>
             <div className="bg-white p-12 shadow-lg rounded-lg h-fit">
             <div className="news-article">

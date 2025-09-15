@@ -11,7 +11,7 @@ export default function NewsSection() {
       link: '/news/logistics-newspaper'
     },
     {
-      date: '2025年05月24日',
+      date: '2025年03月01日',
       tags: [
         { label: '新聞', type: 'newspaper' }
       ],
@@ -19,7 +19,7 @@ export default function NewsSection() {
       link: '/news/industrial-newspaper'
     },
     {
-      date: '2025年05月24日',
+      date: '2024年12月21日',
       tags: [
         { label: 'プレスリリース', type: 'press' }
       ],
@@ -52,7 +52,7 @@ export default function NewsSection() {
             >
               <div className="news-item">
                 {/* 日付、タグ、タイトルを1列に */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6">
                   {/* 日付 */}
                   <div className="font-bold text-gray-800 flex-shrink-0">
                     {item.date}

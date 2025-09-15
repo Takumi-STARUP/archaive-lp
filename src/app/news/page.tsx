@@ -15,7 +15,7 @@ export default function NewsListPage() {
       link: '/news/logistics-newspaper'
     },
     {
-      date: '2025年05月24日',
+      date: '2025年03月01日',
       tags: [
         { label: '新聞', type: 'newspaper' }
       ],
@@ -23,7 +23,7 @@ export default function NewsListPage() {
       link: '/news/industrial-newspaper'
     },
     {
-      date: '2025年05月24日',
+      date: '2024年12月21日',
       tags: [
         { label: 'プレスリリース', type: 'press' }
       ],
