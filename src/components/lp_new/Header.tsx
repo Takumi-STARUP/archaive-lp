@@ -15,6 +15,8 @@ export default function Header() {
     { href: "#features", label: "主要機能" },
     { href: "#case", label: "導入事例" },
     { href: "#process", label: "導入ステップ" },
+    { href: "#news", label: "お知らせ" },
+    { href: "#security", label: "セキュリティ" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -42,7 +44,7 @@ export default function Header() {
       <div className="w-full px-8 py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <Link 
               href="/" 
               className="flex items-center"
@@ -58,21 +60,23 @@ export default function Header() {
           </div>
 
           {/* デスクトップナビゲーション */}
-          <nav className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-            {navigationItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-bold"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center justify-center">
+            <div className="flex items-center space-x-6">
+              {navigationItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-bold text-sm whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </nav>
 
           {/* CTA ボタン */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
             <Link 
               href="/download"
               className="bg-white border-2 border-gray-300 rounded-lg text-black px-6 py-3 text-sm font-bold cursor-pointer flex items-center justify-center hover:bg-gray-50 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
@@ -128,7 +132,7 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-bold py-2"
+                  className="text-gray-600 hover:text-[#37B7C4] transition-colors duration-200 font-bold py-2 text-sm"
                   onClick={(e) => handleNavClick(e, item.href)}
                 >
                   {item.label}

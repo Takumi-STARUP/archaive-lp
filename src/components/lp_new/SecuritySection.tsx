@@ -44,7 +44,7 @@ export default function SecuritySection() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 px-4" style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'}}>
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4">

@@ -6,6 +6,7 @@ import ProblemSolutionSection from '@/components/lp_new/ProblemSolutionSection';
 import FeaturesSection from '@/components/lp_new/FeaturesSection';
 import ProcessSection from '@/components/lp_new/ProcessSection';
 import CaseSection from '@/components/lp_new/CaseSection';
+import NewsSection from '@/components/lp_new/NewsSection';
 import CTASection from '@/components/lp_new/CTASection';
 import SecuritySection from '@/components/lp_new/SecuritySection';
 import Header from '@/components/lp_new/Header';
@@ -67,6 +68,9 @@ export default function Home() {
         </div>
         <div id="process" className="mt-8">
           <ProcessSection />
+        </div>
+        <div id="news" className="mt-16">
+          <NewsSection />
         </div>
         <div id="security" className="mt-16">
           <SecuritySection />

@@ -2,13 +2,22 @@
 
 import Link from 'next/link';
 
-export default function HeroSectionSplit() {
+export default function HeroSectionSplitBackup() {
   return (
     <div className="transition-all duration-500">
-      <section className="relative h-[80vh]" style={{ backgroundImage: "url('/images/生成2.png')", backgroundSize: 'cover', backgroundPosition: '70% 0%', backgroundRepeat: 'no-repeat' }}>
-        <div className="container mx-auto px-4 py-16 relative z-10 h-full">
+      <section className="relative bg-[#37B7C4] h-[75vh]">
+        {/* 背景画像 */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+          style={{ backgroundImage: "url('/images/背景＿幾何学的.png')" }}
+        ></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto px-4 py-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[500px]">
-            <div className="text-left max-w-2xl bg-[#37B7C4]/70 backdrop-blur-sm rounded-xl p-8">
+            <div className="text-left">
               <div className="mb-6">
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
@@ -42,8 +51,31 @@ export default function HeroSectionSplit() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block">
-              {/* 右半分は空白 */}
+            <div className="relative">
+              {/* UI画面 - 画像を使用 */}
+              <div className="relative max-w-2xl mx-auto">
+                <img 
+                  src="/images/トップUI.png" 
+                  alt="ARCHAIVE UI" 
+                  className="w-full h-auto rounded-xl shadow-2xl"
+                />
+              </div>
+
+              {/* 装飾用の四角 */}
+              <div className="absolute -top-12 left-8 hidden lg:block z-10">
+                <div className="bg-white rounded-xl w-32 h-10 shadow-lg border-2 border-yellow-300">
+                </div>
+              </div>
+              
+              <div className="absolute top-20 -right-12 hidden lg:block z-10">
+                <div className="bg-white rounded-xl w-32 h-10 shadow-lg border-2 border-green-300">
+                </div>
+              </div>
+              
+              <div className="absolute bottom-16 -left-16 hidden lg:block z-10">
+                <div className="bg-white rounded-xl w-32 h-10 shadow-lg border-2 border-blue-300">
+                </div>
+              </div>
             </div>
           </div>
         </div>

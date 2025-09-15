@@ -6,13 +6,14 @@ export default function HeroQuickNav() {
   return (
     <section className="bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
           <QuickNavItem href="#demo" title="ARCHAIVEとは" label="サービス紹介" />
           <QuickNavItem href="#problem-solution" title="ARCHAIVEが解決する" label="課題と解決策" />
           <QuickNavItem href="#features" title="ARCHAIVEの" label="主要機能" />
           <QuickNavItem href="#case" title="ARCHAIVEの" label="導入事例" />
           <QuickNavItem href="#process" title="ARCHAIVEの" label="導入ステップ" />
-          <QuickNavItem href="#cta" title="今すぐ" label="相談・資料請求" />
+          <QuickNavItem href="#news" title="ARCHAIVEの" label="お知らせ" />
+          <QuickNavItem href="#security" title="ARCHAIVEの" label="セキュリティ" />
         </div>
       </div>
     </section>
@@ -39,7 +40,7 @@ function QuickNavItem({ href, title, label }: { href: string; title: string; lab
     <a
       href={href}
       onClick={handleClick}
-      className="group flex items-center justify-between py-6 px-6 hover:bg-gray-50 transition-colors"
+      className="group flex items-center justify-between py-6 px-3 hover:bg-gray-50 transition-colors"
     >
       <div>
         <div className="text-xs text-gray-400 tracking-widest">{title}</div>

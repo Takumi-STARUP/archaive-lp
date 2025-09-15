@@ -14,6 +14,8 @@ export default function Footer() {
     { label: "主要機能", href: "#features" },
     { label: "導入事例", href: "#case" },
     { label: "導入ステップ", href: "#process" },
+    { label: "お知らせ", href: "#news" },
+    { label: "セキュリティ", href: "#security" },
     { label: "お問い合わせ", href: "#cta" },
     { label: "会社概要", href: "https://starup01.jp/", external: true }
   ];
