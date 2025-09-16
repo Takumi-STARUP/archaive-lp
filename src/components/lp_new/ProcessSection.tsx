@@ -45,24 +45,24 @@ export default function ProcessSection() {
         </div>
 
         {/* ステップ一覧 */}
-        <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 px-2 sm:p-5 relative">
+        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 px-2 sm:p-5 relative">
           {steps.map((step, index) => (
             <div key={index}>
               <div className="max-w-4xl mx-auto transform hover:-translate-y-1 transition-all duration-500">
-                <div className={`${step.bgColor} text-white p-3 sm:p-2.5 rounded-t-lg font-bold flex items-center w-full shadow-sm`}>
-                  <span className={`bg-white ${step.textColor} rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center mr-2 sm:mr-2.5 text-xs sm:text-sm shadow-sm`}>
+                <div className={`${step.bgColor} text-white p-3 sm:p-2.5 rounded-t-lg font-bold flex items-center w-full border-2 border-[#37B7C4] border-b-0`}>
+                  <span className={`bg-white ${step.textColor} rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center mr-2 sm:mr-2.5 text-xs sm:text-sm`}>
                     {step.number}
                   </span>
                   <span className="text-sm sm:text-base">
                     {step.title}【{step.subtitle}】
                   </span>
                 </div>
-                <div className="bg-white rounded-b-lg p-3 sm:p-2.5 border border-gray-300 w-full shadow-md">
+                <div className="bg-white rounded-b-lg p-3 sm:p-2.5 border-2 border-[#37B7C4] w-full">
                   <p className="m-0 text-gray-600 text-sm sm:text-base" style={{ fontWeight: 600 }}>{step.description}</p>
                 </div>
               </div>
               {index < steps.length - 1 && (
-                <div className="flex justify-center mt-3 -mb-1 sm:mt-4 sm:-mb-2 md:mt-5 md:-mb-2">
+                <div className="flex justify-center mt-2.5 mb-0 sm:mt-3 sm:mb-0.5 md:mt-3.5 md:mb-1">
                   <svg
                     width="40"
                     height="20"

@@ -20,10 +20,10 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section className="pt-24 pb-12 px-4 bg-gradient-to-b from-gray-50 to-white relative">
+    <section className="pt-24 pb-12 px-4 bg-gray-100 relative">
       <div className="container mx-auto max-w-6xl">
         {/* セクションタイトル */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#333333]">
             日々の業務の中に、貴社の成長を妨げている要因が隠れていませんか？
           </h2>

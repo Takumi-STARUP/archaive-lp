@@ -33,14 +33,14 @@ export default function ProblemSolutionSection() {
   ];
 
   return (
-    <section className="py-24 px-4 bg-white relative overflow-hidden">
+    <section className="py-24 px-4 bg-gray-50 relative overflow-hidden">
       {/* 装飾的な背景要素 */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#37B7C4]/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#37B7C4]/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto max-w-[1400px] relative z-10">
         {/* セクションタイトル */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-2 relative z-30">
           <h2 className="text-3xl md:text-4xl font-bold text-[#333333]">
             日々の業務の中に、貴社の成長を妨げている要因が隠れていませんか？
           </h2>
@@ -50,7 +50,7 @@ export default function ProblemSolutionSection() {
         <div className="p-8 rounded-xl">
           <div className="relative flex items-stretch justify-center gap-8">
             {/* Before - 3つの課題 */}
-            <div className="w-[46%] bg-gray-200 py-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-800 z-10">
+            <div className="w-[46%] bg-gray-200 py-8 rounded-xl text-gray-800 z-10 shadow-[-16px_8px_16px_rgba(0,0,0,0.15)]">
               <div className="px-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-8 text-center">導入前</h3>
                 <div className="flex flex-col justify-between flex-1">
@@ -73,8 +73,8 @@ export default function ProblemSolutionSection() {
             
             {/* Center - ARCHAIVE */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-              <div className="bg-white rounded-b-full p-10 pb-5">
-                <div className="w-32 h-16 bg-white flex items-center justify-center mx-auto">
+              <div className="bg-gray-50 rounded-b-full p-10 pb-5">
+                <div className="w-32 h-16 bg-gray-50 flex items-center justify-center mx-auto">
                   <Image
                     src="/images/ARCHAIVE_logo.png"
                     alt="ARCHAIVE"
@@ -118,7 +118,7 @@ export default function ProblemSolutionSection() {
             `}</style>
             
             {/* After - 3つの解決策 */}
-            <div className="w-[46%] bg-[#37B7C4]/10 py-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] text-gray-800 z-10">
+            <div className="w-[46%] bg-[#37B7C4]/10 py-8 rounded-xl text-gray-800 z-10 shadow-[16px_8px_16px_rgba(0,0,0,0.15)]">
               <div className="px-8 h-full flex flex-col">
                 <h3 className="text-2xl font-bold mb-8 text-center text-[#37B7C4]">導入後</h3>
                 <div className="flex flex-col justify-between flex-1">
