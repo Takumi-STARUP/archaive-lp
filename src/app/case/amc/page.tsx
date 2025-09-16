@@ -26,7 +26,7 @@ export default function AmcCase() {
             <hr />
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/中西さん.jpg"
+                src="/images/nakanishi.jpg"
                 alt="Interview Image 1"
                 fill
                 className="object-cover"
@@ -57,7 +57,7 @@ export default function AmcCase() {
             
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/中西さん2.jpg"
+                src="/images/nakanishi_2.jpg"
                 alt="Interview Image 2"
                 fill
                 className="object-cover"
@@ -105,7 +105,7 @@ export default function AmcCase() {
             
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/中西さん3.jpg"
+                src="/images/nakanishi_3.jpg"
                 alt="Interview Image 3"
                 fill
                 className="object-cover"

@@ -26,7 +26,7 @@ export default function CrosstechCase() {
             <hr />
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/松田さん.png"
+                src="/images/matsuda.png"
                 alt="Interview Image 1"
                 fill
                 className="object-cover"
@@ -40,7 +40,7 @@ export default function CrosstechCase() {
             
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/松田さん2.jpg"
+                src="/images/matsuda_2.jpg"
                 alt="Interview Image 2"
                 fill
                 className="object-cover"
@@ -77,7 +77,7 @@ export default function CrosstechCase() {
             
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/松田さん3.jpg"
+                src="/images/matsuda_3.jpg"
                 alt="Interview Image 3"
                 fill
                 className="object-cover"
@@ -104,7 +104,7 @@ export default function CrosstechCase() {
             
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/松田さん4.jpg"
+                src="/images/matsuda_4.jpg"
                 alt="Interview Image 4"
                 fill
                 className="object-cover"
@@ -131,7 +131,7 @@ export default function CrosstechCase() {
             
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/松田さん5.jpg"
+                src="/images/matsuda_5.jpg"
                 alt="Interview Image 5"
                 fill
                 className="object-cover"

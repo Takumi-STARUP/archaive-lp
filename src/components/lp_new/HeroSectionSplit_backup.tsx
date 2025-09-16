@@ -9,7 +9,7 @@ export default function HeroSectionSplitBackup() {
         {/* 背景画像 */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
-          style={{ backgroundImage: "url('/images/背景＿幾何学的.png')" }}
+          style={{ backgroundImage: "url('/images/background_geometric.png')" }}
         ></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
@@ -55,7 +55,7 @@ export default function HeroSectionSplitBackup() {
               {/* UI画面 - 画像を使用 */}
               <div className="relative max-w-2xl mx-auto">
                 <img 
-                  src="/images/トップUI.png" 
+                  src="/images/top_ui.png" 
                   alt="ARCHAIVE UI" 
                   className="w-full h-auto rounded-xl shadow-2xl"
                 />

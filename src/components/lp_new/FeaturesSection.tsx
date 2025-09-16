@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 
 export default function FeaturesSection() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [currentTooltip, setCurrentTooltip] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   const tooltipData = {
     0: ['特徴1', '特徴2', '特徴3'],
@@ -165,7 +165,7 @@ export default function FeaturesSection() {
               </div>
               <div className="w-[55%] relative">
                 <img 
-                  src="/images/サブUI.png" 
+                  src="/images/sub_ui.png" 
                   alt="AIチャット型データ検索 UI" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 0 ? '-translate-y-2 shadow-xl' : ''
@@ -203,7 +203,7 @@ export default function FeaturesSection() {
             >
               <div className="w-[55%] relative">
                 <img 
-                  src="/images/サブUI.png" 
+                  src="/images/sub_ui.png" 
                   alt="類似検索・自動解析 UI" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 1 ? '-translate-y-2 shadow-xl' : ''
@@ -267,7 +267,7 @@ export default function FeaturesSection() {
               </div>
               <div className="w-[55%] relative">
                 <img 
-                  src="/images/サブUI.png" 
+                  src="/images/sub_ui.png" 
                   alt="AI見積エージェント UI" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 2 ? '-translate-y-2 shadow-xl' : ''
@@ -305,7 +305,7 @@ export default function FeaturesSection() {
             >
               <div className="w-[55%] relative">
                 <img 
-                  src="/images/サブUI.png" 
+                  src="/images/sub_ui.png" 
                   alt="カスタムAIソリューションサービス UI" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 3 ? '-translate-y-2 shadow-xl' : ''

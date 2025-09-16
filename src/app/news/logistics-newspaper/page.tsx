@@ -37,7 +37,7 @@ export default function LogisticsNewspaperNews() {
               </p>
               {/* 新聞記事画像 */}
               <img 
-                src="/images/日本物流新聞_1.png" 
+                src="/images/nihon_butsuryu_shinbun_1.png" 
                 alt="日本物流新聞記事" 
                 className="w-full max-w-[600px] mt-8"
               />

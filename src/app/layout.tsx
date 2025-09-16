@@ -2,8 +2,8 @@ import './globals.css';
 import '@/styles/lp1-animations.css';
 
 export const metadata = {
-  title: 'ARCHAIVE LP Root',
-  description: 'ARCHAIVE LP root layout',
+  title: 'ARCHAIVE LP',
+  description: 'ARCHAIVE - 製造業向けAIナレッジ検索システム',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

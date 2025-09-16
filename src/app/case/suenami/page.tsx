@@ -26,7 +26,7 @@ export default function SuenamiCase() {
             <hr />
             <div className="relative w-2/3 h-64 md:h-96 mb-6 mx-auto">
               <Image
-                src="/images/横山さん1.png"
+                src="/images/yokoyama_1.png"
                 alt="Interview Image 1"
                 fill
                 className="object-cover"
