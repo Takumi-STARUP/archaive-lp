@@ -332,7 +332,7 @@ export default function CaseSection() {
                 <img src="/case_logo/logo_omron.png" alt="オムロン" className="max-w-full max-h-full object-contain" />
               </div>
               <div className="flex items-center justify-center w-32 h-16 flex-shrink-0">
-                <img src="/case_logo/20241217_ロゴ_NADAKA CORPORATION（x5）_ブルーライン有り (1).png" alt="NADAKA" className="max-w-full max-h-full object-contain" />
+                <img src="/case_logo/nadaka_corporation_logo_blue_line.png" alt="NADAKA" className="max-w-full max-h-full object-contain" />
               </div>
               <div className="flex items-center justify-center w-32 h-16 flex-shrink-0">
                 <img src="/case_logo/5c8a922b-1a7e-46d2-a606-da3d7afc066a.png" alt="企業ロゴ" className="max-w-full max-h-full object-contain" />
@@ -364,7 +364,7 @@ export default function CaseSection() {
                 <img src="/case_logo/logo_omron.png" alt="オムロン" className="max-w-full max-h-full object-contain" />
               </div>
               <div className="flex items-center justify-center w-32 h-16 flex-shrink-0">
-                <img src="/case_logo/20241217_ロゴ_NADAKA CORPORATION（x5）_ブルーライン有り (1).png" alt="NADAKA" className="max-w-full max-h-full object-contain" />
+                <img src="/case_logo/nadaka_corporation_logo_blue_line.png" alt="NADAKA" className="max-w-full max-h-full object-contain" />
               </div>
               <div className="flex items-center justify-center w-32 h-16 flex-shrink-0">
                 <img src="/case_logo/5c8a922b-1a7e-46d2-a606-da3d7afc066a.png" alt="企業ロゴ" className="max-w-full max-h-full object-contain" />

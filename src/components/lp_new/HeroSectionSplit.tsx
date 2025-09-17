@@ -5,10 +5,15 @@ import Link from 'next/link';
 export default function HeroSectionSplit() {
   return (
     <div className="transition-all duration-500">
-      <section className="relative h-[80vh]" style={{ backgroundImage: "url('/images/generated_2.png')", backgroundSize: 'cover', backgroundPosition: '70% 0%', backgroundRepeat: 'no-repeat' }}>
+      <section className="relative h-[80vh] bg-[#37B7C4]">
+        {/* 背景画像 */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+          style={{ backgroundImage: "url('/images/background_geometric.png')" }}
+        ></div>
         <div className="container mx-auto px-4 py-16 relative z-10 h-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[500px]">
-            <div className="text-left max-w-2xl bg-[#37B7C4]/70 backdrop-blur-sm rounded-xl p-8">
+            <div className="text-left max-w-2xl">
               <div className="mb-6">
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
