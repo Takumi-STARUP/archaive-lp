@@ -44,13 +44,13 @@ export default function Header() {
       <div className="w-full px-8 py-4">
         <div className="flex items-center justify-between">
           {/* ロゴ */}
-          <div className="flex items-center flex-shrink-0">
+          <div className="flex items-center flex-shrink-0 ml-4">
             <Link 
               href="/" 
               className="flex items-center"
             >
               <Image
-                src="/images/ARCHAIVE_logo.png"
+                src="/images/Group.png"
                 alt="ARCHAIVE"
                 width={180}
                 height={60}

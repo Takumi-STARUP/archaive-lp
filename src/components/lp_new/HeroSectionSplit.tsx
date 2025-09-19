@@ -5,14 +5,31 @@ import Link from 'next/link';
 export default function HeroSectionSplit() {
   return (
     <div className="transition-all duration-500">
-      <section className="relative h-[80vh] bg-[#37B7C4]">
+      <section className="relative h-[calc(80vh-64px)] bg-[#37B7C4]">
         {/* 背景画像 */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{ backgroundImage: "url('/images/background_geometric.png')" }}
         ></div>
-        <div className="container mx-auto px-4 py-16 relative z-10 h-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[500px]">
+        {/* 白い台形エリア */}
+        <div 
+          className="absolute bg-white"
+          style={{
+            top: '0%',
+            right: '0%',
+            width: '100%',
+            height: '100%',
+            clipPath: 'polygon(70% 0%, 100% 0%, 100% 100%, 50% 100%)',
+            zIndex: 8
+          }}
+        ></div>
+        {/* メインカラーの半透明オーバーレイ */}
+        <div 
+          className="absolute inset-0 bg-[#2A8B96]/40"
+          style={{ zIndex: 6 }}
+        ></div>
+        <div className="container mx-auto px-4 py-16 relative z-10 h-full overflow-visible">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[500px] overflow-visible">
             <div className="text-left max-w-2xl">
               <div className="mb-6">
               </div>
@@ -47,8 +64,16 @@ export default function HeroSectionSplit() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block">
-              {/* 右半分は空白 */}
+            <div className="hidden lg:block relative overflow-visible">
+              {/* UI画面 - 画像を使用 */}
+              <div className="relative scale-[1.1]" style={{ transformOrigin: 'left center', overflow: 'visible' }}>
+                <img 
+                  src="/images/generated_6.png" 
+                  alt="ARCHAIVEのAI見積システムのダッシュボード画面。図面検索と見積作成機能を表示" 
+                  className="w-full h-auto rounded-xl shadow-2xl"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -76,7 +76,7 @@ export default function ProblemSolutionSection() {
               <div className="bg-gray-50 rounded-b-full p-10 pb-5">
                 <div className="w-32 h-16 bg-gray-50 flex items-center justify-center mx-auto">
                   <Image
-                    src="/images/ARCHAIVE_logo.png"
+                    src="/images/Group.png"
                     alt="ARCHAIVE"
                     width={140}
                     height={46}

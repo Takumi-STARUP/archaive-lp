@@ -75,57 +75,63 @@ export default function FeaturesSection() {
   const subFeatures = [
     {
       icon: (
-        <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-12 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M13 10h5l-6 7v-5H7l6-7v5z"/>
         </svg>
       ),
       title: "柔軟なAPI連携",
-      description: "既存のERP、PLM、生産管理システムなど、社内のあらゆるシステムと連携し、データのハブとなる。"
+      description: "既存のERP、PLM、生産管理システムなど、社内のあらゆるシステムと連携し、データのハブとなる。",
+      hasSpecialLayout: true
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-12 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
         </svg>
       ),
       title: "高度な権限設定",
-      description: "役職や部門、プロジェクト単位で、ファイルへのアクセス権限を柔軟に設定。セキュアな情報共有を実現。"
+      description: "役職や部門、プロジェクト単位で、ファイルへのアクセス権限を柔軟に設定。セキュアな情報共有を実現。",
+      hasSpecialLayout: true
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-12 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M3 15a4 4 0 004 4h10a4 4 0 004-4M3 15a4 4 0 014-4h10a4 4 0 014 4M3 15V9a4 4 0 014-4h10a4 4 0 014 4v6"/>
         </svg>
       ),
       title: "3Dデータアップロード",
-      description: ""
+      description: "",
+      hasSpecialLayout: false
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-12 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
         </svg>
       ),
       title: "図面内書き込み",
-      description: ""
+      description: "",
+      hasSpecialLayout: false
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-12 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h10v2H7v-2z"/>
         </svg>
       ),
       title: "組図部品図管理",
-      description: ""
+      description: "",
+      hasSpecialLayout: false
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-12 h-12 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
           <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
         </svg>
       ),
       title: "帳票発行",
-      description: ""
+      description: "",
+      hasSpecialLayout: false
     }
   ];
 
@@ -165,11 +171,12 @@ export default function FeaturesSection() {
               </div>
               <div className="w-[55%] relative">
                 <img 
-                  src="/images/sub_ui.png" 
-                  alt="AIチャット型データ検索 UI" 
+                  src="/images/チャット検索1.jpg" 
+                  alt="AIチャット型データ検索の操作画面。自然言語での質問入力と検索結果の表示" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 0 ? '-translate-y-2 shadow-xl' : ''
                   }`}
+                  loading="lazy"
                 />
                 {/* 吹き出し群 */}
                 <div className="absolute -right-12 top-8 space-y-2 z-50">
@@ -204,10 +211,11 @@ export default function FeaturesSection() {
               <div className="w-[55%] relative">
                 <img 
                   src="/images/sub_ui.png" 
-                  alt="類似検索・自動解析 UI" 
+                  alt="類似検索・自動解析機能の画面。アップロードした図面と類似図面の比較表示" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 1 ? '-translate-y-2 shadow-xl' : ''
                   }`}
+                  loading="lazy"
                 />
                 {/* 吹き出し群 */}
                 <div className="absolute -left-12 top-8 space-y-2 z-50">
@@ -267,11 +275,12 @@ export default function FeaturesSection() {
               </div>
               <div className="w-[55%] relative">
                 <img 
-                  src="/images/sub_ui.png" 
-                  alt="AI見積エージェント UI" 
+                  src="/images/図面ページ_見積.jpg" 
+                  alt="AI見積エージェントの操作画面。チャット形式での見積作成と管理機能" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 2 ? '-translate-y-2 shadow-xl' : ''
                   }`}
+                  loading="lazy"
                 />
                 {/* 吹き出し群 */}
                 <div className="absolute -right-12 top-8 space-y-2 z-50">
@@ -306,10 +315,11 @@ export default function FeaturesSection() {
               <div className="w-[55%] relative">
                 <img 
                   src="/images/sub_ui.png" 
-                  alt="カスタムAIソリューションサービス UI" 
+                  alt="カスタムAIソリューションの管理画面。カスタマイズ機能の設定と運用状況" 
                   className={`w-full h-auto rounded shadow-lg transition-all duration-300 ${
                     hoveredCard === 3 ? '-translate-y-2 shadow-xl' : ''
                   }`}
+                  loading="lazy"
                 />
                 {/* 吹き出し群 */}
                 <div className="absolute -left-12 top-8 space-y-2 z-50">
@@ -351,20 +361,26 @@ export default function FeaturesSection() {
         {/* その他の機能 */}
         <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 mt-8 sm:mt-12 md:mt-16">
           {/* 上段: 説明付きの2つ */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="flex justify-center gap-6">
             {subFeatures.slice(0, 2).map((feature, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-xl p-6 text-center hover:shadow-xl hover:border-[#37B7C4] transition-all duration-300">
-                <div className="flex justify-center mb-4">
-                  {feature.icon}
+              <div key={index} className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-[#37B7C4] transition-all duration-300" style={{ maxWidth: '400px' }}>
+                <div className="flex flex-col h-full">
+                  {/* 上部: 薄いグレー背景のアイコンエリア */}
+                  <div className="bg-gray-100 p-4 flex justify-center items-center" style={{ minHeight: '80px' }}>
+                    {feature.icon}
+                    <h4 className="text-xl font-bold text-[#333333] ml-4">
+                      {feature.title}
+                    </h4>
+                  </div>
+                  {/* 下部: 白背景のテキストエリア */}
+                  <div className="bg-white p-6 flex-1">
+                    {feature.description && (
+                      <p className="text-base text-gray-700 leading-relaxed font-medium">
+                        {feature.description}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-[#333333] mb-3">
-                  {feature.title}
-                </h4>
-                {feature.description && (
-                  <p className="text-base text-gray-700 leading-relaxed font-medium">
-                    {feature.description}
-                  </p>
-                )}
               </div>
             ))}
           </div>
@@ -372,18 +388,24 @@ export default function FeaturesSection() {
           {/* 下段: 説明なしの4つ */}
           <div className="grid md:grid-cols-4 gap-6">
             {subFeatures.slice(2).map((feature, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 rounded-xl p-6 text-center hover:shadow-xl hover:border-[#37B7C4] transition-all duration-300">
-                <div className="flex justify-center mb-4">
-                  {feature.icon}
+              <div key={index} className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-[#37B7C4] transition-all duration-300">
+                {/* 上部: 薄いグレー背景のアイコンエリア */}
+                <div className="bg-gray-100 p-4 flex flex-col justify-center items-center" style={{ minHeight: '120px' }}>
+                  <div className="flex items-center">
+                    {feature.icon}
+                    <h4 className="text-lg font-bold text-[#333333] ml-3">
+                      {feature.title}
+                    </h4>
+                  </div>
                 </div>
-                <h4 className="text-lg font-bold text-[#333333] mb-3">
-                  {feature.title}
-                </h4>
-                {feature.description && (
-                  <p className="text-base text-gray-700 leading-relaxed font-medium">
-                    {feature.description}
-                  </p>
-                )}
+                {/* 下部: 白背景のテキストエリア */}
+                <div className="bg-white p-4 text-center">
+                  {feature.description && (
+                    <p className="text-base text-gray-700 leading-relaxed font-medium">
+                      {feature.description}
+                    </p>
+                  )}
+                </div>
               </div>
             ))}
           </div>

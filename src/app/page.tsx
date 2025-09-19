@@ -37,7 +37,7 @@ export default function Home() {
                 </div>
                 <div className="max-w-5xl mx-auto">
                   <img 
-                    src="/images/sub_ui.png" 
+                    src="/images/top_ui.png" 
                     alt="ARCHAIVE デモ画面" 
                     className="w-full h-auto rounded-xl border border-gray-300"
                   />

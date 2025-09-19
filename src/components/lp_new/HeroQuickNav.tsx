@@ -4,16 +4,14 @@ import Link from 'next/link';
 
 export default function HeroQuickNav() {
   return (
-    <section className="bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
+    <section className="bg-white h-[calc(20vh-16px)] border-t border-gray-200">
+      <div className="container mx-auto px-4 h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 h-full">
           <QuickNavItem href="#demo" title="ARCHAIVEとは" label="サービス紹介" />
           <QuickNavItem href="#problem-solution" title="ARCHAIVEが解決する" label="課題と解決策" />
           <QuickNavItem href="#features" title="ARCHAIVEの" label="主要機能" />
           <QuickNavItem href="#case" title="ARCHAIVEの" label="導入事例" />
           <QuickNavItem href="#process" title="ARCHAIVEの" label="導入ステップ" />
-          <QuickNavItem href="#news" title="ARCHAIVEの" label="お知らせ" />
-          <QuickNavItem href="#security" title="ARCHAIVEの" label="セキュリティ" />
         </div>
       </div>
     </section>
@@ -40,14 +38,14 @@ function QuickNavItem({ href, title, label }: { href: string; title: string; lab
     <a
       href={href}
       onClick={handleClick}
-      className="group flex items-center justify-between py-6 px-3 hover:bg-gray-50 transition-colors"
+      className="group flex items-center justify-between h-full px-3 hover:bg-gray-50 transition-colors"
     >
       <div>
-        <div className="text-xs text-gray-400 tracking-widest">{title}</div>
-        <div className="text-base font-semibold text-gray-800 mt-1">{label}</div>
+        <div className="text-sm text-gray-400 tracking-widest">{title}</div>
+        <div className="text-lg font-semibold text-gray-800 mt-1">{label}</div>
       </div>
       <svg
-        className="w-4 h-4 text-gray-300 group-hover:text-[#37B7C4] transition-colors"
+        className="w-5 h-5 text-gray-300 group-hover:text-[#37B7C4] transition-colors"
         fill="currentColor"
         viewBox="0 0 20 20"
       >

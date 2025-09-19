@@ -57,17 +57,17 @@ export default function DownloadPage() {
         
         <div className="container mx-auto px-4 max-w-3xl py-12 relative">
           {/* 背景画像 - フォームの後ろに配置 */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
             <img 
-              src="/images/トップUI.png" 
+              src="/images/sub_ui.png" 
               alt="" 
-              className="opacity-50 blur-sm"
-              style={{ width: '2000px', maxWidth: '180%', height: 'auto' }}
+              className="opacity-60 blur-sm"
+              style={{ width: '80vw', maxWidth: '80vw', height: 'auto' }}
             />
           </div>
           
           {/* フォーム */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 relative z-10">
+          <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 relative z-10">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-[#333333] mb-2">
                 資料ダウンロードフォーム
@@ -144,6 +144,21 @@ export default function DownloadPage() {
               <p className="text-xs text-gray-500 mt-1">資料のダウンロードリンクをお送りします</p>
             </div>
 
+            {/* 電話番号 */}
+            <div className="mb-6">
+              <label className="block text-gray-700 font-semibold mb-2">
+                電話番号
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="例 | 03-1234-5678"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent"
+              />
+            </div>
+
             {/* 従業員数 */}
             <div className="mb-6">
               <label className="block text-gray-700 font-semibold mb-2">
@@ -186,11 +201,11 @@ export default function DownloadPage() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent appearance-none bg-white"
                 >
                   <option value="">選択してください</option>
-                  <option value="情報収集">情報収集のため</option>
+                  <option value="知見を深める">ご自身の知見を深めるため</option>
+                  <option value="仕様を知る">仕様を知るため</option>
+                  <option value="課題解決">課題解決に向けた情報収集のため</option>
                   <option value="比較検討">他社サービスと比較検討するため</option>
-                  <option value="課題解決">課題解決に向けた検討のため</option>
-                  <option value="上司報告">上司への報告資料として</option>
-                  <option value="その他">その他</option>
+                  <option value="興味">興味があったため</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -198,6 +213,21 @@ export default function DownloadPage() {
                   </svg>
                 </div>
               </div>
+            </div>
+
+            {/* ご質問・ご要望 */}
+            <div className="mb-6">
+              <label className="block text-gray-700 font-semibold mb-2">
+                ご質問・ご要望
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="その他お問い合わせ内容がございましたらご記入ください"
+                rows={4}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#37B7C4] focus:border-transparent resize-none"
+              />
             </div>
 
             {/* プライバシーポリシー */}

@@ -7,9 +7,9 @@ export default function ProcessSection() {
       title: "SaaS導入",
       subtitle: "課題のボトルネックを解消する",
       description: "標準機能で、最も負荷の高い業務から最適化し、確実な成果を短期間で実感していただく。",
-      bgColor: "bg-[#37B7C4]/85",
+      bgColor: "bg-[#37B7C4]/80",
       textColor: "text-[#37B7C4]",
-      arrowColor: "fill-[#37B7C4]/85",
+      arrowColor: "fill-[#37B7C4]/80",
       features: []
     },
     {
@@ -17,9 +17,9 @@ export default function ProcessSection() {
       title: "既存システム連携",
       subtitle: "分断された情報を繋ぎ合わせる",
       description: "貴社が既にお使いのシステムと連携し、組織全体の業務プロセスが淀みなく流れるよう最適化する。",
-      bgColor: "bg-[#37B7C4]/95",
+      bgColor: "bg-[#37B7C4]/90",
       textColor: "text-[#37B7C4]",
-      arrowColor: "fill-[#37B7C4]/95",
+      arrowColor: "fill-[#37B7C4]/90",
       features: []
     },
     {
@@ -29,6 +29,7 @@ export default function ProcessSection() {
       description: "貴社ならではの強みを、専用の機能として開発・実装。競争力を強化する「武器」を共に創り上げる。",
       bgColor: "bg-[#37B7C4]",
       textColor: "text-[#37B7C4]",
+      arrowColor: "fill-[#37B7C4]",
       features: []
     }
   ];

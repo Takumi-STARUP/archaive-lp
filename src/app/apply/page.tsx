@@ -56,17 +56,17 @@ export default function LPNewApply() {
         
         <div className="container mx-auto px-4 max-w-3xl py-12 relative">
           {/* 背景画像 - フォームの後ろに配置 */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
             <img 
-              src="/images/トップUI.png" 
+              src="/images/sub_ui.png" 
               alt="" 
-              className="opacity-50 blur-sm"
-              style={{ width: '2000px', maxWidth: '180%', height: 'auto' }}
+              className="opacity-60 blur-sm"
+              style={{ width: '80vw', maxWidth: '80vw', height: 'auto' }}
             />
           </div>
           
           {/* フォーム */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 relative z-10">
+          <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 relative z-10">
             {/* 会社名 */}
             <div className="mb-6">
               <label className="block text-gray-700 font-semibold mb-2">

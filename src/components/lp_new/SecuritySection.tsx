@@ -12,9 +12,9 @@ export default function SecuritySection() {
         </svg>
       ),
       items: [
-        "最小限の通信ポートとIPアドレス範囲だけを許可し、不正アクセス経路を最小化",
-        "必要最低限のアクセス権のみ付与し、誤った権限設定による侵入・情報漏洩を防止",
-        "API通信や管理画面へのアクセスをSSL/TLSで暗号化し、通信経路上での盗聴・改ざんリスクを低減"
+        "最小限のポート・IPアドレスのみ許可",
+        "必要最低限のアクセス権限で侵入リスクを低減",
+        "SSL/TLS暗号化で通信を保護"
       ]
     },
     {
@@ -25,13 +25,13 @@ export default function SecuritySection() {
         </svg>
       ),
       items: [
-        "OSやミドルウェア、コンテナイメージに定期的にパッチを適用し、既知の脆弱性を早期に修正",
-        "定期的に脆弱性スキャンを行い、早期発見・対策を実施",
-        "不正なリクエストや攻撃パターン（SQLインジェクション、XSSなど）をブロックし、アプリケーション層の脆弱性を軽減"
+        "OS・ミドルウェアへの定期的なパッチ適用",
+        "脆弱性スキャンによる早期発見と対策",
+        "SQLインジェクション・XSS等の攻撃をブロック"
       ]
     },
     {
-      title: "データの保全・保護",
+      title: "データ保護",
       icon: (
         <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#37B7C4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.39 4 7.5 4s7.5-1.79 7.5-4V7c0 2.21-3.39 4-7.5 4S4 9.21 4 7z"/>
@@ -39,10 +39,9 @@ export default function SecuritySection() {
         </svg>
       ),
       items: [
-        "保存データの暗号化、および通信経路の暗号化を実施",
-        "定期的なバックアップの取得、災害復旧用のマルチリージョンバックアップ、リストア手順の整備",
-        "DB毎にアクセス権限を厳密に設定し、誤ったデータ公開や改ざんを防止",
-        "データアクセス状況を記録・可視化し、異常検知を行う"
+        "保存・通信データの暗号化",
+        "定期バックアップとマルチリージョン対応",
+        "厳密なアクセス権限管理と監視ログによる異常検知"
       ]
     }
   ];
@@ -79,7 +78,7 @@ export default function SecuritySection() {
                     style={{ animationDelay: `${(index * 200) + (itemIndex * 100)}ms`, animationFillMode: 'forwards' }}
                   >
                     <span className="text-[#37B7C4] text-2xl mt-0 mr-3 flex-shrink-0">・</span>
-                    <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{item}</span>
+                    <span className="text-sm sm:text-base text-gray-700 font-semibold leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
