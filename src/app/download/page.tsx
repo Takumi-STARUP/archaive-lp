@@ -29,12 +29,50 @@ export default function DownloadPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理
-    console.log('Download form submitted:', formData);
-    // PDFダウンロード処理をここに追加
-    alert('資料をダウンロードしています。メールアドレスにもお送りしました。');
+    
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({...formData, formType: 'download'}),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        setSubmitMessage('資料のダウンロードリンクをメールでお送りします。');
+        // フォームをリセット
+        setFormData({
+          companyName: '',
+          name: '',
+          department: '',
+          position: '',
+          email: '',
+          phone: '',
+          employeeCount: '',
+          purpose: '',
+          message: '',
+          privacyPolicy: false
+        });
+      } else {
+        setSubmitMessage('エラーが発生しました。もう一度お試しください。');
+      }
+    } catch (error) {
+      console.error('送信エラー:', error);
+      setSubmitMessage('通信エラーが発生しました。しばらくしてからお試しください。');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -251,15 +289,37 @@ export default function DownloadPage() {
               </label>
             </div>
 
+            {/* エラー・成功メッセージ */}
+            {submitMessage && (
+              <div className={`p-4 rounded-lg mb-4 ${
+                submitMessage.includes('送ります') 
+                  ? 'bg-green-100 text-green-700 border border-green-400' 
+                  : 'bg-red-100 text-red-700 border border-red-400'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
+
             {/* ダウンロードボタン */}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#37B7C4] to-[#2a9aa5] hover:from-[#2a9aa5] hover:to-[#37B7C4] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className={`w-full font-bold py-4 px-6 rounded-lg transition-all duration-300 text-lg shadow-lg transform flex items-center justify-center gap-2 ${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-gradient-to-r from-[#37B7C4] to-[#2a9aa5] hover:from-[#2a9aa5] hover:to-[#37B7C4] hover:shadow-xl hover:-translate-y-0.5'
+              } text-white`}
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-              </svg>
-              資料をダウンロード
+              {isSubmitting ? (
+                '送信中...'
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                  </svg>
+                  資料をダウンロード
+                </>
+              )}
             </button>
           </form>
 

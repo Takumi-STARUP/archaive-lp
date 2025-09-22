@@ -29,11 +29,50 @@ export default function LPNewApply() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理
-    console.log('Form submitted:', formData);
-    alert('お申し込みを受け付けました。担当者より連絡させていただきます。');
+    
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        setSubmitMessage('お申し込みありがとうございます。担当者より連絡させていただきます。');
+        // フォームをリセット
+        setFormData({
+          companyName: '',
+          name: '',
+          department: '',
+          position: '',
+          email: '',
+          phone: '',
+          employeeCount: '',
+          purpose: '',
+          message: '',
+          privacyPolicy: false
+        });
+      } else {
+        setSubmitMessage('エラーが発生しました。もう一度お試しください。');
+      }
+    } catch (error) {
+      console.error('送信エラー:', error);
+      setSubmitMessage('通信エラーが発生しました。しばらくしてからお試しください。');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -259,12 +298,28 @@ export default function LPNewApply() {
               </label>
             </div>
 
+            {/* エラー・成功メッセージ */}
+            {submitMessage && (
+              <div className={`p-4 rounded-lg mb-4 ${
+                submitMessage.includes('ありがとうございます') 
+                  ? 'bg-green-100 text-green-700 border border-green-400' 
+                  : 'bg-red-100 text-red-700 border border-red-400'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
+
             {/* 送信ボタン */}
             <button
               type="submit"
-              className="w-full bg-[#37B7C4] hover:bg-[#2a9aa5] text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              disabled={isSubmitting}
+              className={`w-full font-bold py-4 px-6 rounded-lg transition-all duration-200 text-lg shadow-lg transform ${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-[#37B7C4] hover:bg-[#2a9aa5] hover:shadow-xl hover:-translate-y-0.5'
+              } text-white`}
             >
-              送信する
+              {isSubmitting ? '送信中...' : '送信する'}
             </button>
           </form>
 
