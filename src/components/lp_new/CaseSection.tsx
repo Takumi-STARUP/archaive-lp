@@ -115,13 +115,16 @@ export default function CaseSection() {
 
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 bg-white">
+    <section className="pt-12 sm:pt-16 md:pt-20 pb-6 sm:pb-8 md:pb-10 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         {/* セクションタイトル */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4 sm:mb-6">
-            導入企業の実績
+            お客様の声
           </h2>
+          <p className="text-base sm:text-lg text-gray-600 font-medium">
+            全国、幅広い規模の企業様に導入いただいています
+          </p>
         </div>
 
         {/* カルーセル */}

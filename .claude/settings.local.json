@@ -3,7 +3,12 @@
     "allow": [
       "Bash(python3:*)",
       "Bash(grep:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Read(//Users/haru/Downloads/**)",
+      "Bash(npm run dev:*)",
+      "Bash(npx eslint:*)",
+      "Bash(cat:*)",
+      "Bash(xxd:*)"
     ],
     "deny": [],
     "ask": []

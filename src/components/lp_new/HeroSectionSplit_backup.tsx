@@ -21,8 +21,8 @@ export default function HeroSectionSplitBackup() {
               <div className="mb-6">
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
-                1枚の図面から、<br />
-                1秒で過去の全ナレッジをAI活用
+                1枚の図面/帳票から<br />
+                社内の全ナレッジをAI活用
               </h1>
               <div className="mb-10">
                 <p className="text-xl md:text-2xl text-white mb-4 font-semibold leading-relaxed">
