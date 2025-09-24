@@ -1,97 +1,182 @@
 'use client';
+import { useState, useEffect } from 'react';
 
 export default function ProcessSection() {
+  const [visibleSteps, setVisibleSteps] = useState<number[]>([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisibleSteps([0]);
+    }, 300);
+
+    const timer2 = setTimeout(() => {
+      setVisibleSteps([0, 1]);
+    }, 600);
+
+    const timer3 = setTimeout(() => {
+      setVisibleSteps([0, 1, 2]);
+    }, 900);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
+
   const steps = [
     {
       number: "01",
       title: "SaaS導入",
-      subtitle: "課題のボトルネックを解消する",
-      description: "標準機能で、最も負荷の高い業務から最適化し、確実な成果を短期間で実感していただく。",
-      bgColor: "bg-[#37B7C4]/80",
-      textColor: "text-[#37B7C4]",
-      arrowColor: "fill-[#37B7C4]/80",
-      features: []
+      subtitle: "標準機能で即効果",
+      description: "図面管理・見積作成など、製造業に必要な機能を即座に利用開始。",
+      benefits: ["導入即日から効果実感", "学習コストゼロ"],
+      icon: "🚀",
+      bgGradient: "from-[#37B7C4] to-[#2ea3b5]",
+      borderColor: "border-[#37B7C4]"
     },
     {
-      number: "02", 
+      number: "02",
       title: "既存システム連携",
-      subtitle: "分断された情報を繋ぎ合わせる",
-      description: "貴社が既にお使いのシステムと連携し、組織全体の業務プロセスが淀みなく流れるよう最適化する。",
-      bgColor: "bg-[#37B7C4]/90",
-      textColor: "text-[#37B7C4]",
-      arrowColor: "fill-[#37B7C4]/90",
-      features: []
+      subtitle: "データの分断を解消",
+      description: "ERP・生産管理システムなど既存システムと連携し、情報を統合。",
+      benefits: ["既存投資を活用", "移行リスクゼロ"],
+      icon: "🔗",
+      bgGradient: "from-[#37B7C4] to-[#1f8a9a]",
+      borderColor: "border-[#37B7C4]"
     },
     {
       number: "03",
-      title: "カスタマイズ開発", 
-      subtitle: "競争力の源泉を強化する",
-      description: "貴社ならではの強みを、専用の機能として開発・実装。競争力を強化する「武器」を共に創り上げる。",
-      bgColor: "bg-[#37B7C4]",
-      textColor: "text-[#37B7C4]",
-      arrowColor: "fill-[#37B7C4]",
-      features: []
+      title: "カスタマイズ開発",
+      subtitle: "競争優位を創出",
+      description: "貴社独自の強みを活かした専用機能を開発・実装。",
+      benefits: ["完全オーダーメイド", "競合優位性確保"],
+      icon: "⚡",
+      bgGradient: "from-[#37B7C4] to-[#0f7488]",
+      borderColor: "border-[#37B7C4]"
     }
   ];
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 px-4 bg-gray-100">
-      <div className="container mx-auto max-w-6xl">
-        {/* セクションタイトル */}
-        <div className="text-center mb-3 sm:mb-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-2 sm:mb-3 leading-tight">
-            業務にシステムを合わせるのであって、<br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>システムに業務を合わせるのではない。
+    <section className="py-8 sm:py-12 md:py-16 px-4 bg-gray-100 relative overflow-hidden">
+      {/* 控えめな背景装飾 */}
+      <div className="absolute inset-0 pointer-events-none opacity-50">
+        <div className="absolute top-10 left-10 w-24 h-24 bg-[#37B7C4]/5 rounded-full blur-2xl" />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#37B7C4]/8 rounded-full blur-xl" />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        {/* セクションタイトル - 他セクションと統一 */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4 leading-tight">
+            全体最適までの導入・活用までの伴走支援
           </h2>
+          <p className="text-base sm:text-lg text-gray-600 font-medium">
+            製造業DX/AIのプロが全力でサポートします。
+          </p>
         </div>
 
-        {/* ステップ一覧 */}
-        <div className="flex flex-col gap-2 sm:gap-3 md:gap-4 px-2 sm:p-5 relative">
-          {steps.map((step, index) => (
-            <div key={index}>
-              <div className="max-w-4xl mx-auto transform hover:-translate-y-1 transition-all duration-500">
-                <div className={`${step.bgColor} text-white p-3 sm:p-2.5 rounded-t-lg font-bold flex items-center w-full border-2 border-[#37B7C4] border-b-0`}>
-                  <span className={`bg-white ${step.textColor} rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center mr-2 sm:mr-2.5 text-xs sm:text-sm`}>
-                    {step.number}
-                  </span>
-                  <span className="text-sm sm:text-base">
-                    {step.title}【{step.subtitle}】
-                  </span>
+        {/* 3ステッププロセス - 横方向フェーズ移行 */}
+        <div className="relative">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+            {steps.map((step, index) => (
+              <div key={index} className="flex items-center">
+                {/* ステップコンテンツ */}
+                <div
+                  className={`flex flex-col items-center h-80 transform transition-all duration-700 ${
+                    visibleSteps.includes(index)
+                      ? 'translate-x-0 opacity-100'
+                      : 'translate-x-8 opacity-0'
+                  }`}
+                  style={{transitionDelay: `${index * 200}ms`}}
+                >
+                  {/* フェーズ番号 */}
+                  <div className="flex justify-center mb-4">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#37B7C4] to-[#2ea3b5] rounded-full flex items-center justify-center shadow-lg">
+                        <span className="text-xl font-bold text-white">{step.number}</span>
+                      </div>
+                      {/* 装飾リング */}
+                      <div className="absolute inset-0 rounded-full border-2 border-[#37B7C4]/30"></div>
+                    </div>
+                  </div>
+
+                  {/* プロセスカード */}
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-80 h-64">
+                    {/* ヘッダー */}
+                    <div className={`bg-gradient-to-r ${step.bgGradient} p-4 text-white text-center`}>
+                      <h3 className="text-lg font-bold mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm opacity-90">
+                        【{step.subtitle}】
+                      </p>
+                    </div>
+
+                    {/* コンテンツ */}
+                    <div className="p-5">
+                      <p className="text-gray-700 text-base leading-relaxed mb-4 font-medium">
+                        {step.description}
+                      </p>
+
+                      {/* ベネフィット */}
+                      <div className="flex gap-1 justify-center">
+                        {step.benefits.map((benefit, bIndex) => (
+                          <div key={bIndex} className="bg-[#37B7C4]/10 text-[#37B7C4] text-xs font-medium px-2 py-1 rounded">
+                            {benefit}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-white rounded-b-lg p-3 sm:p-2.5 border-2 border-[#37B7C4] w-full">
-                  <p className="m-0 text-gray-600 text-sm sm:text-base" style={{ fontWeight: 600 }}>{step.description}</p>
-                </div>
+
+                {/* 矢印 - ステップ間 */}
+                {index < steps.length - 1 && (
+                  <div className="hidden md:flex items-center justify-center mx-4">
+                    <div className="flex items-center">
+                      <div className="w-12 h-0.5 bg-[#37B7C4]"></div>
+                      <svg className="w-6 h-6 text-[#37B7C4] -ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 17l5-5-5-5v10z"/>
+                      </svg>
+                    </div>
+                  </div>
+                )}
               </div>
-              {index < steps.length - 1 && (
-                <div className="flex justify-center mt-2.5 mb-0 sm:mt-3 sm:mb-0.5 md:mt-3.5 md:mb-1">
-                  <svg
-                    width="40"
-                    height="20"
-                    viewBox="0 0 40 20"
-                    className={step.arrowColor}
-                  >
-                    <path d="M20 20L0 0H40L20 20Z" />
+            ))}
+          </div>
+
+          {/* モバイル用の縦矢印 */}
+          <div className="md:hidden space-y-4">
+            {steps.slice(0, -1).map((_, index) => (
+              <div key={index} className="flex justify-center">
+                <div className="flex flex-col items-center">
+                  <div className="w-0.5 h-6 bg-[#37B7C4]"></div>
+                  <svg className="w-6 h-6 text-[#37B7C4]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
                   </svg>
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* ARCHAIVEアプローチ */}
-        <div className="text-center mt-6 sm:mt-8 px-2">
-          <div className="bg-gray-800 text-white text-center py-3 sm:py-4 px-4 sm:px-8 rounded-lg max-w-4xl mx-auto">
-            <p className="text-base sm:text-lg">
-              <span className="text-white font-bold text-lg sm:text-2xl">ARCHAIVE</span>
-              <span className="text-gray-300">の</span>
-              <span className="text-white font-bold text-lg sm:text-2xl">「SaaS + 伴走型開発」</span>
-              <span className="text-gray-300">アプローチ</span>
-            </p>
+              </div>
+            ))}
           </div>
         </div>
 
+        {/* ARCHAIVEアプローチ - 他セクションと統一 */}
+        <div className="text-center mt-8 sm:mt-12">
+          <div className="bg-gray-800 text-white rounded-lg p-4 sm:p-6 max-w-4xl mx-auto shadow-lg">
+            <h3 className="text-lg sm:text-xl font-bold mb-3">
+              <span className="text-[#37B7C4] font-bold">ARCHAIVE</span>
+              <span className="text-gray-300">の</span>
+              <span className="text-white">「SaaS + 伴走型開発」</span>
+              <span className="text-gray-300">アプローチ</span>
+            </h3>
 
-
+            <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+              標準機能による即効性と、カスタム開発による独自性を両立。<br />
+              段階的導入でリスクを最小化し、成果を最大化します。
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

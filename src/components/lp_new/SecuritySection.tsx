@@ -47,38 +47,60 @@ export default function SecuritySection() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4" style={{background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)'}}>
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333] mb-4">
-            安心のセキュリティ
+    <section className="py-16 sm:py-20 md:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 relative overflow-hidden">
+      {/* 背景の装飾要素 */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-[#37B7C4]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-[#37B7C4]/8 rounded-full blur-2xl" />
+
+        {/* 幾何学パターン */}
+        <svg className="absolute inset-0 w-full h-full opacity-5" viewBox="0 0 800 600" preserveAspectRatio="none">
+          <defs>
+            <pattern id="securityGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#37B7C4" strokeWidth="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#securityGrid)" />
+        </svg>
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
+            エンタープライズ水準のセキュリティ
           </h2>
+          <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+            高水準のセキュリティ/コンプライアンスによって、お客様の重要な資産を守ります
+          </p>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
           {securityMeasures.map((measure, index) => (
-            <div 
-              key={index} 
-              className="bg-gray-50 rounded-lg p-6 sm:p-8 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 shadow-md hover:shadow-xl border border-[#37B7C4]"
+            <div
+              key={index}
+              className="bg-gray-800/80 backdrop-blur-sm rounded-lg p-8 sm:p-10 transform hover:scale-[1.02] transition-all duration-500 shadow-2xl hover:shadow-3xl border border-gray-700/50 hover:border-[#37B7C4]/30 relative overflow-hidden group"
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="flex items-center mb-4 sm:mb-6">
-                <div className="animate-pulse">
+              {/* カード内装飾 */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#37B7C4]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#37B7C4] to-transparent opacity-60" />
+              <div className="flex items-center mb-6 sm:mb-8 relative z-10">
+                <div className="bg-[#37B7C4]/20 p-3 rounded-lg mr-4">
                   {measure.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#333333] ml-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide">
                   {measure.title}
                 </h3>
               </div>
-              <ul className="space-y-3 sm:space-y-4">
+              <ul className="space-y-4 sm:space-y-5 relative z-10">
                 {measure.items.map((item, itemIndex) => (
-                  <li 
-                    key={itemIndex} 
+                  <li
+                    key={itemIndex}
                     className="flex items-start opacity-0 animate-fadeInUp"
                     style={{ animationDelay: `${(index * 200) + (itemIndex * 100)}ms`, animationFillMode: 'forwards' }}
                   >
-                    <span className="text-[#37B7C4] text-2xl mt-0 mr-3 flex-shrink-0">・</span>
-                    <span className="text-sm sm:text-base text-gray-700 font-semibold leading-relaxed">{item}</span>
+                    <div className="w-2 h-2 bg-[#37B7C4] rounded-full mt-2 mr-4 flex-shrink-0" />
+                    <span className="text-base sm:text-lg text-gray-300 font-medium leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>

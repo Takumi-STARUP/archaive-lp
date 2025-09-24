@@ -42,7 +42,7 @@ export default function ProblemSolutionSection() {
         {/* セクションタイトル */}
         <div className="text-center mb-2 relative z-30">
           <h2 className="text-3xl md:text-4xl font-bold text-[#333333]">
-            日々の業務の中に、貴社の成長を妨げている要因が隠れていませんか？
+            こんなDX推進・AI活用の課題はありませんか？
           </h2>
         </div>
         

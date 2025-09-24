@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id            String   @id @default(cuid())
+  companyName   String   @map("company_name")
+  name          String
+  department    String?
+  position      String?
+  email         String
+  phone         String
+  employeeCount String   @map("employee_count")
+  purpose       String
+  message       String?
+  
+  // メタデータ
+  status        String   @default("new") // new, contacted, qualified, converted
+  priority      String   @default("normal") // low, normal, high
+  assignedTo    String?  @map("assigned_to")
+  notes         String?
+  
+  // タイムスタンプ
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  contactedAt   DateTime? @map("contacted_at")
+  
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+  @@map("leads")
+}
+
+model EmailLog {
+  id          String   @id @default(cuid())
+  leadId      String?  @map("lead_id")
+  type        String   // admin_notification, customer_confirmation, follow_up
+  recipient   String
+  subject     String
+  content     String
+  status      String   // sent, failed, bounced
+  error       String?
+  sentAt      DateTime @default(now()) @map("sent_at")
+  
+  @@index([leadId])
+  @@index([type])
+  @@index([sentAt])
+  @@map("email_logs")
+}
