@@ -24,6 +24,7 @@ model Lead {
   employeeCount String   @map("employee_count")
   purpose       String
   message       String?
+  formType      String?  @map("form_type") // demo, download, apply
   
   // メタデータ
   status        String   @default("new") // new, contacted, qualified, converted

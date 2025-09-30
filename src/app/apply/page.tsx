@@ -44,7 +44,7 @@ export default function LPNewApply() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({...formData, formType: 'demo'}),
       });
       
       const result = await response.json();

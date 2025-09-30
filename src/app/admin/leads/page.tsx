@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, Mail, Phone, Calendar, Building, Users, Target, MessageSquare, AlertCircle } from 'lucide-react';
 
 interface Lead {
@@ -18,6 +18,7 @@ interface Lead {
   priority: string;
   assignedTo?: string;
   notes?: string;
+  formType?: string;
   createdAt: string;
   updatedAt: string;
   contactedAt?: string;
@@ -179,6 +180,9 @@ export default function LeadsPage() {
                     目的
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    フォーム種別
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     ステータス
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -218,6 +222,17 @@ export default function LeadsPage() {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
+                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                          lead.formType === 'demo' ? 'bg-orange-100 text-orange-800' : 
+                          lead.formType === 'download' ? 'bg-green-100 text-green-800' : 
+                          'bg-gray-100 text-gray-800'
+                        }`}>
+                          {lead.formType === 'demo' ? 'デモ申込' : 
+                           lead.formType === 'download' ? '資料DL' : 
+                           lead.formType || '不明'}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(lead.status)}`}>
                           {lead.status === 'new' ? '新規' :
                            lead.status === 'contacted' ? '連絡済み' :
@@ -240,7 +255,7 @@ export default function LeadsPage() {
                     </tr>
                     {expandedId === lead.id && (
                       <tr>
-                        <td colSpan={6} className="px-6 py-4 bg-gray-50">
+                        <td colSpan={7} className="px-6 py-4 bg-gray-50">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                               <h4 className="font-semibold text-gray-900 mb-2">連絡先情報</h4>
